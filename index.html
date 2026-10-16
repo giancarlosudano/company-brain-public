@@ -74,12 +74,14 @@ h2 { margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -.01em; text-
 .intro { margin: 0; color: var(--tenue); max-width: 65ch; }
 
 /* team */
-.team { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.team { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
 .ruolo { background: var(--superficie); border: 1px solid var(--bordo); border-radius: 12px; padding: 16px; display: grid; gap: 6px; align-content: start; min-width: 0; }
 .ruolo .ritratto { width: 100%; max-width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 8px; display: block; background: var(--accento-tenue); }
 .ruolo .eroe { font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--tenue); }
 .ruolo h3 { margin: 4px 0 0; font-size: 16px; }
 .ruolo p { margin: 0; color: var(--tenue); font-size: 14px; }
+.ruolo .motto { color: var(--testo); font-style: italic; font-size: 13px; }
+.ruolo .motto::before { content: "«"; } .ruolo .motto::after { content: "»"; }
 .s-orc { background: linear-gradient(135deg, #7b4ce0, #3c7bf0); }
 .s-rea { background: linear-gradient(135deg, #12a5c9, #2fbf71); }
 .s-ese { background: linear-gradient(135deg, #f59e0b, #ef5a3c); }
@@ -115,6 +117,7 @@ button.copia:hover { border-color: var(--accento); }
 
 footer { border-top: 1px solid var(--bordo); padding-top: 18px; color: var(--tenue); font-size: 13px; display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between; }
 
+@media (max-width: 860px) { .team { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 760px) { .team { grid-template-columns: repeat(2, minmax(0, 1fr)); } .stato { grid-template-columns: 1fr; } }
 @media (max-width: 520px) {
   .testata { grid-template-columns: 1fr; gap: 18px; }
@@ -148,14 +151,15 @@ footer { border-top: 1px solid var(--bordo); padding-top: 18px; color: var(--ten
 
   <section aria-labelledby="t-team">
     <h2 id="t-team">Il team</h2>
-    <p class="intro">Ogni agente ha un compito e permessi propri. Un controllo esterno decide quando si passa alla fase successiva, tiene il budget e chiede la tua approvazione prima di lavorare.</p>
+    <p class="intro">Ogni agente ha un compito e permessi propri. Sopra di loro il Policy Plane: regole fuori dal modello che decidono quando si passa alla fase successiva.</p>
     <div class="team">
-      <article class="ruolo"><img class="ritratto" src="assets/eroe-orchestratore.jpg" alt="Capitan America, il volto dell'Orchestratore" width="200" height="250" loading="lazy"><h3>Orchestratore</h3><span class="eroe">Capitan America</span><p>Legge la richiesta e propone il piano: incarichi, fasi e criteri di riuscita.</p></article>
-      <article class="ruolo"><img class="ritratto" src="assets/eroe-reader.jpg" alt="Scarlet Witch, il volto del Reader" width="200" height="250" loading="lazy"><h3>Reader</h3><span class="eroe">Scarlet Witch</span><p>Cerca nelle fonti autorizzate e riporta le citazioni.</p></article>
-      <article class="ruolo"><img class="ritratto" src="assets/eroe-esecutore.jpg" alt="Iron Man, il volto dell'Esecutore" width="200" height="250" loading="lazy"><h3>Esecutore</h3><span class="eroe">Iron Man</span><p>Scrive il documento partendo da quello che il Reader ha trovato.</p></article>
-      <article class="ruolo"><img class="ritratto" src="assets/eroe-verificatore.jpg" alt="Doctor Strange, il volto del Verificatore" width="200" height="250" loading="lazy"><h3>Verificatore</h3><span class="eroe">Doctor Strange</span><p>Controlla il risultato con un modello diverso, in modo indipendente da chi l'ha scritto.</p></article>
+      <article class="ruolo"><img class="ritratto" src="assets/eroe-orchestratore.jpg" alt="Capitan America, il volto dell'Orchestratore" width="200" height="250" loading="lazy"><h3>Orchestratore</h3><span class="eroe">Capitan America</span><p>Legge la richiesta e propone il piano: incarichi, fasi e criteri di riuscita.</p><p class="motto">guida il team, non tocca la produzione</p></article>
+      <article class="ruolo"><img class="ritratto" src="assets/eroe-reader.jpg" alt="Scarlet Witch, il volto del Reader" width="200" height="250" loading="lazy"><h3>Reader</h3><span class="eroe">Scarlet Witch</span><p>Cerca nelle fonti autorizzate e riporta le citazioni.</p><p class="motto">legge la mente; qui, solo le fonti</p></article>
+      <article class="ruolo"><img class="ritratto" src="assets/eroe-esecutore.jpg" alt="Iron Man, il volto dell'Esecutore" width="200" height="250" loading="lazy"><h3>Esecutore</h3><span class="eroe">Iron Man</span><p>Scrive il documento partendo da quello che il Reader ha trovato.</p><p class="motto">mette l’armatura, ma solo con un token</p></article>
+      <article class="ruolo"><img class="ritratto" src="assets/eroe-verificatore.jpg" alt="Doctor Strange, il volto del Verificatore" width="200" height="250" loading="lazy"><h3>Verificatore</h3><span class="eroe">Doctor Strange</span><p>Controlla il risultato con un modello diverso, in modo indipendente da chi l'ha scritto.</p><p class="motto">visti 14.000.605 futuri; verifica anche il tuo</p></article>
+      <article class="ruolo"><img class="ritratto" src="assets/eroe-policy.jpg" alt="Nick Fury, il volto del Policy Plane" width="200" height="250" loading="lazy"><h3>Policy Plane</h3><span class="eroe">Nick Fury</span><p>Niente superpoteri né modello: solo regole. Stesso input, stessa risposta, sempre. Decide fase per fase chi può fare cosa, tiene il budget e chiede la tua approvazione.</p><p class="motto">un occhio, zero allucinazioni</p></article>
     </div>
-    <p class="regia">Orchestratore, Reader ed Esecutore lavorano su Claude; il Verificatore su un modello OpenAI.</p>
+    <p class="regia">Orchestratore, Reader ed Esecutore lavorano su Claude; il Verificatore su un modello OpenAI. Il Policy Plane non usa modelli: è codice deterministico.</p>
   </section>
 
   <section id="prova" aria-labelledby="t-prova">
