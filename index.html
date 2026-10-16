@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Company Brain</title>
+<meta name="robots" content="noindex, nofollow">
 <meta name="description" content="Company Brain: un team di agenti governato che produce documenti aziendali verificati. Accesso al POC e istruzioni per provarlo.">
 <link rel="icon" type="image/png" href="assets/companybrain.png">
 <meta property="og:title" content="Company Brain">
@@ -75,7 +76,8 @@ h2 { margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -.01em; text-
 /* team */
 .team { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
 .ruolo { background: var(--superficie); border: 1px solid var(--bordo); border-radius: 12px; padding: 16px; display: grid; gap: 6px; align-content: start; min-width: 0; }
-.ruolo .sigla { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 14px; color: #fff; }
+.ruolo .ritratto { width: 100%; max-width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 8px; display: block; background: var(--accento-tenue); }
+.ruolo .eroe { font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--tenue); }
 .ruolo h3 { margin: 4px 0 0; font-size: 16px; }
 .ruolo p { margin: 0; color: var(--tenue); font-size: 14px; }
 .s-orc { background: linear-gradient(135deg, #7b4ce0, #3c7bf0); }
@@ -148,10 +150,10 @@ footer { border-top: 1px solid var(--bordo); padding-top: 18px; color: var(--ten
     <h2 id="t-team">Il team</h2>
     <p class="intro">Ogni agente ha un compito e permessi propri. Un controllo esterno decide quando si passa alla fase successiva, tiene il budget e chiede la tua approvazione prima di lavorare.</p>
     <div class="team">
-      <article class="ruolo"><span class="sigla s-orc" aria-hidden="true">O</span><h3>Orchestratore</h3><p>Legge la richiesta e propone il piano: incarichi, fasi e criteri di riuscita.</p></article>
-      <article class="ruolo"><span class="sigla s-rea" aria-hidden="true">R</span><h3>Reader</h3><p>Cerca nelle fonti autorizzate e riporta le citazioni.</p></article>
-      <article class="ruolo"><span class="sigla s-ese" aria-hidden="true">E</span><h3>Esecutore</h3><p>Scrive il documento partendo da quello che il Reader ha trovato.</p></article>
-      <article class="ruolo"><span class="sigla s-ver" aria-hidden="true">V</span><h3>Verificatore</h3><p>Controlla il risultato con un modello diverso, in modo indipendente da chi l'ha scritto.</p></article>
+      <article class="ruolo"><img class="ritratto" src="assets/eroe-orchestratore.jpg" alt="Capitan America, il volto dell'Orchestratore" width="200" height="250" loading="lazy"><h3>Orchestratore</h3><span class="eroe">Capitan America</span><p>Legge la richiesta e propone il piano: incarichi, fasi e criteri di riuscita.</p></article>
+      <article class="ruolo"><img class="ritratto" src="assets/eroe-reader.jpg" alt="Scarlet Witch, il volto dell'Reader" width="200" height="250" loading="lazy"><h3>Reader</h3><span class="eroe">Scarlet Witch</span><p>Cerca nelle fonti autorizzate e riporta le citazioni.</p></article>
+      <article class="ruolo"><img class="ritratto" src="assets/eroe-esecutore.jpg" alt="Hulk, il volto dell'Esecutore" width="200" height="250" loading="lazy"><h3>Esecutore</h3><span class="eroe">Hulk</span><p>Scrive il documento partendo da quello che il Reader ha trovato.</p></article>
+      <article class="ruolo"><img class="ritratto" src="assets/eroe-verificatore.jpg" alt="Doctor Strange, il volto dell'Verificatore" width="200" height="250" loading="lazy"><h3>Verificatore</h3><span class="eroe">Doctor Strange</span><p>Controlla il risultato con un modello diverso, in modo indipendente da chi l'ha scritto.</p></article>
     </div>
     <p class="regia">Orchestratore, Reader ed Esecutore lavorano su Claude; il Verificatore su un modello OpenAI.</p>
   </section>
