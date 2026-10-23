@@ -3,16 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Company Brain</title>
-<meta name="robots" content="noindex, nofollow">
-<meta name="description" content="Company Brain: a governed team of agents that produces verified business documents. Access to the POC and how to try it.">
-<link rel="icon" type="image/png" href="assets/companybrain.png">
-<meta property="og:title" content="Company Brain">
-<meta property="og:description" content="A governed team of agents that produces verified business documents.">
-<meta property="og:image" content="assets/companybrain.png">
+<title>Company Brain · the paper and the proof of concept</title>
+<meta name="robots" content="noindex, follow">
+<meta name="description" content="All you need is a Company Brain: not thousands of agents, but a single governed graph of what the enterprise knows, how it works and what it can do, executed by a small team of agents. Paper, web edition and proof of concept.">
+<link rel="canonical" href="https://giancarlosudano.github.io/company-brain-public/">
 <link rel="alternate" hreflang="en" href="https://giancarlosudano.github.io/company-brain-public/">
 <link rel="alternate" hreflang="it" href="https://giancarlosudano.github.io/company-brain-public/it/">
 <link rel="alternate" hreflang="x-default" href="https://giancarlosudano.github.io/company-brain-public/">
+<link rel="icon" type="image/png" href="assets/companybrain.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Company Brain">
+<meta property="og:description" content="Not thousands of agents: one governed brain per enterprise, executed by a small team of agents.">
+<meta property="og:url" content="https://giancarlosudano.github.io/company-brain-public/">
+<meta property="og:image" content="https://giancarlosudano.github.io/company-brain-public/paper/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <style>
 /* Layout: header with the ring as a sign, then a column of blocks; strong color
    only in the logo and the primary button, the rest is neutral. */
@@ -152,6 +158,36 @@ footer { border-top: 1px solid var(--bordo); padding-top: 18px; color: var(--ten
   @keyframes respiro { 50% { transform: scale(1.03); filter: drop-shadow(0 12px 34px rgba(100, 63, 178, .36)); } }
 }
 @media (prefers-reduced-motion: reduce) { .pulsante { transition: none; } }
+
+/* paper first: hero figure, pillars, paper card; the POC is a second, clearly separated part */
+.hero { margin: 0; }
+.hero img { width: 100%; height: auto; display: block; border-radius: 14px; border: 1px solid var(--bordo); background: #fff; box-shadow: var(--ombra); }
+.hero .scuro { display: none; }
+@media (prefers-color-scheme: dark) { .hero .chiaro { display: none; } .hero .scuro { display: block; background: #12161c; } }
+.hero figcaption { margin-top: 10px; font-size: 13px; color: var(--tenue); }
+.pilastri { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; counter-reset: p; }
+.pilastri li { counter-increment: p; background: var(--superficie); border: 1px solid var(--bordo); border-radius: 12px; padding: 16px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pilastri li::before { content: counter(p); width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 13px; color: var(--accento); background: var(--accento-tenue); }
+.pilastri h3 { margin: 4px 0 0; font-size: 15.5px; line-height: 1.25; }
+.pilastri p { margin: 0; color: var(--tenue); font-size: 14px; line-height: 1.5; }
+.scheda { background: var(--superficie); border: 1px solid var(--bordo); border-radius: 14px; padding: 22px 24px; box-shadow: var(--ombra); display: grid; gap: 14px; }
+.scheda .tit { margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -.01em; }
+.scheda .sub { margin: 0; color: var(--tenue); font-style: italic; max-width: 70ch; }
+.scheda .meta { margin: 0; font-size: 14px; color: var(--tenue); display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.scheda .meta code { font-family: var(--font-dati); font-size: 13px; }
+.scheda .azioni { margin-top: 2px; }
+.cita { margin: 0; font-size: 13px; color: var(--tenue); display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
+.cita span { font-family: var(--font-dati); font-size: 12px; overflow-wrap: anywhere; }
+.parte { display: grid; gap: 10px; padding-top: 28px; border-top: 1px solid var(--bordo); }
+.parte .etichetta { margin-bottom: 0; }
+.parte h2 { font-size: 26px; }
+h3.sub2 { margin: 0; font-size: 18px; font-weight: 700; }
+.lingue { justify-self: end; display: inline-flex; gap: 2px; padding: 3px; border: 1px solid var(--bordo); border-radius: 999px; background: var(--superficie); font-size: 13px; font-weight: 650; margin-bottom: -28px; }
+.lingue a { color: var(--tenue); text-decoration: none; padding: 4px 10px; border-radius: 999px; }
+.lingue a[aria-current="page"] { background: var(--accento-tenue); color: var(--accento); }
+.lingue a:hover { color: var(--testo); }
+@media (max-width: 860px) { .pilastri { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .pilastri { grid-template-columns: 1fr; } .scheda { padding: 18px; } }
 </style>
 </head>
 <body>
@@ -159,35 +195,62 @@ footer { border-top: 1px solid var(--bordo); padding-top: 18px; color: var(--ten
   <nav class="lingue" aria-label="Language"><a href="./" aria-current="page" hreflang="en">EN</a><a href="it/" hreflang="it" lang="it">IT</a></nav>
 
   <header class="testata">
-    <img class="anello" src="assets/companybrain.png" alt="Company Brain logo: a ring in Copilot colors" width="132" height="132">
+    <img class="anello" src="assets/companybrain.png" alt="" width="132" height="132">
     <div>
-      <div class="etichetta">POC online</div>
+      <div class="etichetta">Paper · proof of concept</div>
       <h1>Company Brain</h1>
-      <p class="tesi">A small, governed team of agents that turns a request into a verified business document.</p>
+      <p class="tesi">Not thousands of agents: one governed brain per enterprise, executed by a small team of agents.</p>
       <div class="azioni">
-        <a class="pulsante primario" href="https://ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/ui" target="_blank" rel="noopener">Open Company Brain</a>
-        <a class="pulsante secondario" href="#try">How to try it</a>
+        <a class="pulsante primario" href="paper/">Read the paper</a>
+        <a class="pulsante secondario" href="https://doi.org/10.5281/zenodo.23589908">PDF on Zenodo</a>
+        <a class="pulsante secondario" href="#poc">Try the POC</a>
       </div>
     </div>
   </header>
 
-  <section aria-labelledby="t-what">
-    <h2 id="t-what">What the Company Brain is</h2>
+  <figure class="hero"><img class="chiaro" src="paper/img/opening-light-1x.webp" srcset="paper/img/opening-light-1x.webp 1203w, paper/img/opening-light.webp 2406w" sizes="(min-width: 920px) 880px, 100vw" width="2406" height="1602" alt="The capability graph on the Contoso RFP example: process manifest, three phases with risk class and agents, harness profiles, skills and MCP tools, with typed edges."><img class="scuro" src="paper/img/opening-dark-1x.webp" srcset="paper/img/opening-dark-1x.webp 1203w, paper/img/opening-dark.webp 2406w" sizes="(min-width: 920px) 880px, 100vw" width="2406" height="1602" alt=""><figcaption>The capability graph of the paper on its running example: process, phases, profiles, skills and tools, with typed edges.</figcaption></figure>
+
+  <section aria-labelledby="t-idea">
+    <h2 id="t-idea">The idea</h2>
     <div class="sintesi">
-      <p>Enterprises are told they will run thousands of AI agents. The Company Brain starts from a different idea: what needs designing is not the agent but the enterprise's brain, a single governed graph of what the company knows, how it works and what it can do, with permissions, provenance and audit on every node.</p>
-      <p>A small team of agents with distinct roles executes it, acting on behalf of the user and holding only the privileges of the current phase. At night a governed process rereads the day's traces and proposes improvements, which go live only after tests and human sign-off. The language model is the engine and can be replaced; the brain remains the enterprise's own.</p>
-      <p>This POC shows its core: the team, the Policy Plane and the approvals, on a business-document production case.</p>
+      <p>Enterprises are told they will run thousands of AI agents. The Company Brain starts from a different idea: what needs designing is not the agent but the enterprise&#x27;s brain, a single governed graph of what the company knows, how it works and what it can do, with permissions, provenance and audit on every node.</p>
+      <p>A small team of agents with distinct roles executes it, acting on behalf of the user and holding only the privileges of the current phase. At night a governed process rereads the day&#x27;s traces and proposes improvements, which go live only after tests and human sign-off.</p>
+      <p>The language model is the engine and can be replaced; the brain is the asset that remains the enterprise&#x27;s own. What must grow into the thousands are its capabilities, not the agents, the identities or the permissions to govern.</p>
     </div>
-    <a class="paper" href="paper/">
-      <span class="titolo">All you need is a Company Brain</span>
-      <p class="riassunto">The architecture behind the POC: a governed graph of knowledge, procedures and actions, a small team of agents with delegated identities and per-phase control, a nightly cycle that improves it. Read it online or as a PDF.</p>
-      <span class="doi">doi:10.5281/zenodo.23589908</span>
-      <span class="vai">Read the paper →</span>
-    </a>
   </section>
 
+  <section aria-labelledby="t-pillars">
+    <h2 id="t-pillars">Five pillars</h2>
+    <ol class="pilastri">
+      <li><h3>Capability graph</h3><p>Skills, tools, profiles and policies as versioned, signed nodes with typed relationships; the knowledge bases sit behind read-only MCP tools.</p></li>
+      <li><h3>Dynamic tools</h3><p>For every task, retrieval extracts only the bundle it needs, within a budget of tokens and exposed tools.</p></li>
+      <li><h3>Per-phase policy plane</h3><p>At every phase declared by an external state machine, deterministic rules materialize the profile and the privileges of each session.</p></li>
+      <li><h3>Small team</h3><p>Four archetypes — Orchestrator, Reader, Executor, Verifier — acting on behalf of the user, with no standing credentials per instance.</p></li>
+      <li><h3>Governed evolution</h3><p>At night, Dreaming proposes and tests changes from the day&#x27;s traces; whatever grants authority changes only with human sign-off.</p></li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="t-paper" id="paper">
+    <h2 id="t-paper">The paper</h2>
+    <div class="scheda">
+      <p class="tit">All you need is a Company Brain</p>
+      <p class="sub">The Company Brain as an architecture: a governed graph of knowledge, procedures and actions; a small team of agents that executes it with delegated identities and per-phase control; a nightly cycle that grows it.</p>
+      <p class="meta"><span>Giancarlo Sudano</span><span>October 2026</span><span>45 pages · 13 figures</span><span>CC BY 4.0</span><span><a href="https://doi.org/10.5281/zenodo.23589908"><code>doi:10.5281/zenodo.23589908</code></a></span></p>
+      <p class="intro">The reference architecture is illustrated on a railway risk-assessment case (EU Regulation 402/2013); an experimental protocol to test its hypotheses and a reference implementation are in preparation.</p>
+      <div class="azioni"><a class="pulsante primario" href="paper/" hreflang="en">Read online</a><a class="pulsante secondario" href="it/paper/">Leggi in italiano</a><a class="pulsante secondario" href="https://doi.org/10.5281/zenodo.23589908">PDF on Zenodo</a></div>
+      <p class="cita"><strong>Cite as</strong> <span id="cita">Sudano, G. (2026). All you need is a Company Brain. Zenodo. https://doi.org/10.5281/zenodo.23589908</span> <button class="copia" type="button" data-testo="cita">Copy</button></p>
+    </div>
+  </section>
+
+  <div class="parte" id="poc">
+    <div class="etichetta">Proof of concept</div>
+    <h2>The architecture at work</h2>
+    <p class="intro">The POC puts the core of the paper to work on a business-document case: the small team, the Policy Plane that governs it phase by phase and the human approvals. You ask for a document; the team plans, writes and verifies it.</p>
+    <div class="azioni"><a class="pulsante primario" href="https://ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/ui" target="_blank" rel="noopener">Open Company Brain</a></div>
+  </div>
+
   <section aria-labelledby="t-team">
-    <h2 id="t-team">The team</h2>
+    <h3 class="sub2" id="t-team">The team</h3>
     <p class="intro">Each agent has its own job and its own permissions. Above them sits the Policy Plane: rules outside the model that decide when the work moves to the next phase.</p>
     <div class="team">
       <article class="ruolo"><img class="ritratto" src="assets/eroe-orchestratore.jpg" alt="Captain America, the face of the Orchestrator" width="200" height="250" loading="lazy"><h3>Orchestrator</h3><span class="eroe">Captain America</span><p>Reads the request and proposes the plan: assignments, phases and success criteria.</p><p class="motto">leads the team, never touches production</p></article>
@@ -200,7 +263,7 @@ footer { border-top: 1px solid var(--bordo); padding-top: 18px; color: var(--ten
   </section>
 
   <section id="try" aria-labelledby="t-try">
-    <h2 id="t-try">How to try it</h2>
+    <h3 class="sub2" id="t-try">How to try it</h3>
     <ol class="passi">
       <li><div><strong>Sign in</strong><span>Open Company Brain and sign in with the Microsoft account enabled for the POC.</span></div></li>
       <li><div><strong>Say what you need</strong><span>One sentence is enough, for example “Instructions for a new developer's first week”.</span></div></li>
@@ -210,7 +273,7 @@ footer { border-top: 1px solid var(--bordo); padding-top: 18px; color: var(--ten
   </section>
 
   <section aria-labelledby="t-link">
-    <h2 id="t-link">Link</h2>
+    <h3 class="sub2" id="t-link">Links</h3>
     <ul class="link">
       <li><div class="voce"><a href="https://ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/ui" target="_blank" rel="noopener">Company Brain</a><p>The conversation with the team: plan, approval, monitor and final document.</p><span class="indirizzo">ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/ui</span></div><button class="copia" type="button">Copy</button></li>
       <li><div class="voce"><a href="https://ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/auth/login" target="_blank" rel="noopener">Sign-in</a><p>Goes straight to the Microsoft sign-in page.</p><span class="indirizzo">ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/auth/login</span></div><button class="copia" type="button">Copy</button></li>
@@ -218,7 +281,7 @@ footer { border-top: 1px solid var(--bordo); padding-top: 18px; color: var(--ten
   </section>
 
   <section aria-labelledby="t-stato">
-    <h2 id="t-stato">Status</h2>
+    <h3 class="sub2" id="t-stato">Status</h3>
     <dl class="stato">
       <div><dt>Last update</dt><dd>October 16, 2026</dd></div>
       <div><dt>Application version</dt><dd>035191a</dd></div>
@@ -235,19 +298,19 @@ footer { border-top: 1px solid var(--bordo); padding-top: 18px; color: var(--ten
   </section>
 
   <footer>
-    <span>Company Brain · proof of concept</span>
-    <span>Updated at every release</span>
+    <span>Company Brain · Giancarlo Sudano</span>
+    <span><a href="https://doi.org/10.5281/zenodo.23589908" style="color:inherit">Paper: doi:10.5281/zenodo.23589908</a></span>
   </footer>
 </div>
 
 <script>
 document.querySelectorAll("button.copia").forEach((b) => {
   b.addEventListener("click", () => {
-    const a = b.parentElement.querySelector("a");
-    const fatto = () => { b.textContent = "Copied"; setTimeout(() => (b.textContent = "Copy"), 1500); };
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(a.href).then(fatto, () => {});
-    }
+    const id = b.getAttribute("data-testo");
+    const text = id ? document.getElementById(id).textContent : b.parentElement.querySelector("a").href;
+    const label = b.textContent;
+    const done = () => { b.textContent = "Copied"; setTimeout(() => (b.textContent = label), 1500); };
+    if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, () => {});
   });
 });
 </script>

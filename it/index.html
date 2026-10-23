@@ -3,19 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Company Brain</title>
-<meta name="robots" content="noindex, nofollow">
-<meta name="description" content="Company Brain: un team di agenti governato che produce documenti aziendali verificati. Accesso al POC e istruzioni per provarlo.">
-<link rel="icon" type="image/png" href="../assets/companybrain.png">
-<meta property="og:title" content="Company Brain">
-<meta property="og:description" content="Un team di agenti governato che produce documenti aziendali verificati.">
-<meta property="og:image" content="../assets/companybrain.png">
+<title>Company Brain · il paper e la prova di concetto</title>
+<meta name="robots" content="noindex, follow">
+<meta name="description" content="All you need is a Company Brain: non migliaia di agenti, ma un unico grafo governato di ciò che l’impresa sa, di come lavora e di ciò che può fare, eseguito da un piccolo team di agenti. Paper, edizione web e prova di concetto.">
+<link rel="canonical" href="https://giancarlosudano.github.io/company-brain-public/it/">
 <link rel="alternate" hreflang="en" href="https://giancarlosudano.github.io/company-brain-public/">
 <link rel="alternate" hreflang="it" href="https://giancarlosudano.github.io/company-brain-public/it/">
 <link rel="alternate" hreflang="x-default" href="https://giancarlosudano.github.io/company-brain-public/">
+<link rel="icon" type="image/png" href="../assets/companybrain.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Company Brain">
+<meta property="og:description" content="Non migliaia di agenti: un solo cervello governato per impresa, eseguito da un piccolo team di agenti.">
+<meta property="og:url" content="https://giancarlosudano.github.io/company-brain-public/it/">
+<meta property="og:image" content="https://giancarlosudano.github.io/company-brain-public/it/paper/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <style>
-/* Layout: testata con l'anello come segno, poi una colonna di blocchi; il colore vivo
-   sta solo nel logo e nel pulsante principale, il resto è neutro. */
+/* Layout: header with the ring as a sign, then a column of blocks; strong color
+   only in the logo and the primary button, the rest is neutral. */
 :root {
   --fondo: #fbfafd;
   --superficie: #ffffff;
@@ -102,7 +108,7 @@ h2 { margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -.01em; text-
 .ruolo h3 { margin: 4px 0 0; font-size: 16px; }
 .ruolo p { margin: 0; color: var(--tenue); font-size: 14px; }
 .ruolo .motto { color: var(--testo); font-style: italic; font-size: 13px; }
-.ruolo .motto::before { content: "«"; } .ruolo .motto::after { content: "»"; }
+.ruolo .motto::before { content: "“"; } .ruolo .motto::after { content: "”"; }
 .s-orc { background: linear-gradient(135deg, #7b4ce0, #3c7bf0); }
 .s-rea { background: linear-gradient(135deg, #12a5c9, #2fbf71); }
 .s-ese { background: linear-gradient(135deg, #f59e0b, #ef5a3c); }
@@ -152,6 +158,36 @@ footer { border-top: 1px solid var(--bordo); padding-top: 18px; color: var(--ten
   @keyframes respiro { 50% { transform: scale(1.03); filter: drop-shadow(0 12px 34px rgba(100, 63, 178, .36)); } }
 }
 @media (prefers-reduced-motion: reduce) { .pulsante { transition: none; } }
+
+/* paper first: hero figure, pillars, paper card; the POC is a second, clearly separated part */
+.hero { margin: 0; }
+.hero img { width: 100%; height: auto; display: block; border-radius: 14px; border: 1px solid var(--bordo); background: #fff; box-shadow: var(--ombra); }
+.hero .scuro { display: none; }
+@media (prefers-color-scheme: dark) { .hero .chiaro { display: none; } .hero .scuro { display: block; background: #12161c; } }
+.hero figcaption { margin-top: 10px; font-size: 13px; color: var(--tenue); }
+.pilastri { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; counter-reset: p; }
+.pilastri li { counter-increment: p; background: var(--superficie); border: 1px solid var(--bordo); border-radius: 12px; padding: 16px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.pilastri li::before { content: counter(p); width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 13px; color: var(--accento); background: var(--accento-tenue); }
+.pilastri h3 { margin: 4px 0 0; font-size: 15.5px; line-height: 1.25; }
+.pilastri p { margin: 0; color: var(--tenue); font-size: 14px; line-height: 1.5; }
+.scheda { background: var(--superficie); border: 1px solid var(--bordo); border-radius: 14px; padding: 22px 24px; box-shadow: var(--ombra); display: grid; gap: 14px; }
+.scheda .tit { margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -.01em; }
+.scheda .sub { margin: 0; color: var(--tenue); font-style: italic; max-width: 70ch; }
+.scheda .meta { margin: 0; font-size: 14px; color: var(--tenue); display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.scheda .meta code { font-family: var(--font-dati); font-size: 13px; }
+.scheda .azioni { margin-top: 2px; }
+.cita { margin: 0; font-size: 13px; color: var(--tenue); display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
+.cita span { font-family: var(--font-dati); font-size: 12px; overflow-wrap: anywhere; }
+.parte { display: grid; gap: 10px; padding-top: 28px; border-top: 1px solid var(--bordo); }
+.parte .etichetta { margin-bottom: 0; }
+.parte h2 { font-size: 26px; }
+h3.sub2 { margin: 0; font-size: 18px; font-weight: 700; }
+.lingue { justify-self: end; display: inline-flex; gap: 2px; padding: 3px; border: 1px solid var(--bordo); border-radius: 999px; background: var(--superficie); font-size: 13px; font-weight: 650; margin-bottom: -28px; }
+.lingue a { color: var(--tenue); text-decoration: none; padding: 4px 10px; border-radius: 999px; }
+.lingue a[aria-current="page"] { background: var(--accento-tenue); color: var(--accento); }
+.lingue a:hover { color: var(--testo); }
+@media (max-width: 860px) { .pilastri { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .pilastri { grid-template-columns: 1fr; } .scheda { padding: 18px; } }
 </style>
 </head>
 <body>
@@ -159,35 +195,62 @@ footer { border-top: 1px solid var(--bordo); padding-top: 18px; color: var(--ten
   <nav class="lingue" aria-label="Lingua"><a href="../" hreflang="en" lang="en">EN</a><a href="./" aria-current="page" hreflang="it">IT</a></nav>
 
   <header class="testata">
-    <img class="anello" src="../assets/companybrain.png" alt="Logo di Company Brain: un anello con i colori di Copilot" width="132" height="132">
+    <img class="anello" src="../assets/companybrain.png" alt="" width="132" height="132">
     <div>
-      <div class="etichetta">POC online</div>
+      <div class="etichetta">Paper · prova di concetto</div>
       <h1>Company Brain</h1>
-      <p class="tesi">Un piccolo team di agenti, governato, che trasforma una richiesta in un documento aziendale verificato.</p>
+      <p class="tesi">Non migliaia di agenti: un solo cervello governato per impresa, eseguito da un piccolo team di agenti.</p>
       <div class="azioni">
-        <a class="pulsante primario" href="https://ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/ui" target="_blank" rel="noopener">Apri Company Brain</a>
-        <a class="pulsante secondario" href="#prova">Come provarlo</a>
+        <a class="pulsante primario" href="paper/">Leggi il paper</a>
+        <a class="pulsante secondario" href="https://doi.org/10.5281/zenodo.23589908">PDF su Zenodo</a>
+        <a class="pulsante secondario" href="#poc">Prova il POC</a>
       </div>
     </div>
   </header>
 
-  <section aria-labelledby="t-cosa">
-    <h2 id="t-cosa">Che cos'è il Company Brain</h2>
+  <figure class="hero"><img class="chiaro" src="paper/img/opening-light-1x.webp" srcset="paper/img/opening-light-1x.webp 1203w, paper/img/opening-light.webp 2406w" sizes="(min-width: 920px) 880px, 100vw" width="2406" height="1602" alt="Il capability graph sull’esempio della RFP Contoso: manifesto di processo, tre fasi con classe di rischio e agenti, profili di harness, skill e tool MCP, con archi tipizzati."><img class="scuro" src="paper/img/opening-dark-1x.webp" srcset="paper/img/opening-dark-1x.webp 1203w, paper/img/opening-dark.webp 2406w" sizes="(min-width: 920px) 880px, 100vw" width="2406" height="1602" alt=""><figcaption>Il capability graph del paper sul suo esempio guida: processo, fasi, profili, skill e tool, con archi tipizzati.</figcaption></figure>
+
+  <section aria-labelledby="t-idea">
+    <h2 id="t-idea">L’idea</h2>
     <div class="sintesi">
-      <p>Si parla di imprese popolate da migliaia di agenti AI. Il Company Brain parte da un'idea diversa: ciò che va progettato non è l'agente ma il cervello dell'impresa, un unico grafo governato di ciò che l'azienda sa, di come lavora e di ciò che può fare, con permessi, provenienza e audit su ogni nodo.</p>
-      <p>A eseguirlo è un piccolo team di agenti con ruoli distinti, che agiscono per conto dell'utente e con i privilegi della sola fase in corso. Di notte un processo governato rilegge le tracce del giorno e propone miglioramenti, che entrano solo dopo test e firma umana. Il modello linguistico è il motore e si può cambiare; il cervello resta dell'impresa.</p>
-      <p>Questo POC ne mostra il cuore: il team, il Policy Plane e le approvazioni, su un caso di produzione di documenti aziendali.</p>
+      <p>Si parla di imprese popolate da migliaia di agenti AI. Il Company Brain parte da un’idea diversa: ciò che va progettato non è l’agente ma il cervello dell’impresa, un unico grafo governato di ciò che l’azienda sa, di come lavora e di ciò che può fare, con permessi, provenienza e audit su ogni nodo.</p>
+      <p>A eseguirlo è un piccolo team di agenti con ruoli distinti, che agiscono per conto dell’utente e con i privilegi della sola fase in corso. Di notte un processo governato rilegge le tracce del giorno e propone miglioramenti, che entrano solo dopo test e firma umana.</p>
+      <p>Il modello linguistico è il motore e si può cambiare; il cervello è l’asset che resta dell’impresa. Ciò che deve crescere a migliaia sono le sue capacità, non gli agenti, le identità o i permessi da governare.</p>
     </div>
-    <a class="paper" href="paper/">
-      <span class="titolo">All you need is a Company Brain</span>
-      <p class="riassunto">L'architettura dietro il POC: un grafo governato di conoscenza, procedure e azioni, un piccolo team di agenti con identità delegate e controllo per fase, un ciclo notturno che lo migliora. Da leggere online, in italiano o in inglese; il PDF di riferimento è in inglese.</p>
-      <span class="doi">doi:10.5281/zenodo.23589908</span>
-      <span class="vai">Leggi il paper →</span>
-    </a>
   </section>
 
+  <section aria-labelledby="t-pillars">
+    <h2 id="t-pillars">Cinque pilastri</h2>
+    <ol class="pilastri">
+      <li><h3>Capability graph</h3><p>Skill, tool, profili e policy come nodi versionati e firmati, con relazioni tipizzate; le basi di conoscenza stanno dietro tool MCP di sola lettura.</p></li>
+      <li><h3>Tool dinamici</h3><p>Per ogni task il retrieval estrae solo il bundle che serve, entro un budget di token e di tool esposti.</p></li>
+      <li><h3>Policy plane per fase</h3><p>A ogni fase, dichiarata da una state machine esterna, regole deterministiche materializzano profilo e privilegi di ogni sessione.</p></li>
+      <li><h3>Piccolo team</h3><p>Quattro archetipi — Orchestratore, Reader, Esecutore, Verificatore — che agiscono per conto dell’utente, senza credenziali persistenti per istanza.</p></li>
+      <li><h3>Evoluzione governata</h3><p>Di notte il Dreaming propone e mette alla prova modifiche nate dalle tracce del giorno; ciò che concede autorità cambia solo con firma umana.</p></li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="t-paper" id="paper">
+    <h2 id="t-paper">Il paper</h2>
+    <div class="scheda">
+      <p class="tit">All you need is a Company Brain</p>
+      <p class="sub">Il Company Brain come architettura: un grafo governato di conoscenza, procedure e azioni; un piccolo team di agenti che lo esegue con identità delegate e controllo per fase; un ciclo notturno che lo fa crescere.</p>
+      <p class="meta"><span>Giancarlo Sudano</span><span>ottobre 2026</span><span>45 pagine · 13 figure</span><span>CC BY 4.0</span><span><a href="https://doi.org/10.5281/zenodo.23589908"><code>doi:10.5281/zenodo.23589908</code></a></span></p>
+      <p class="intro">L’architettura di riferimento è illustrata su un caso di valutazione del rischio ferroviario (Reg. UE 402/2013); sono in preparazione un protocollo sperimentale per metterne alla prova le ipotesi e un’implementazione di riferimento. La versione di riferimento del paper è quella inglese su Zenodo.</p>
+      <div class="azioni"><a class="pulsante primario" href="paper/">Leggi online in italiano</a><a class="pulsante secondario" href="../paper/" hreflang="en">Read in English</a><a class="pulsante secondario" href="https://doi.org/10.5281/zenodo.23589908">PDF su Zenodo (inglese)</a></div>
+      <p class="cita"><strong>Come citarlo</strong> <span id="cita">Sudano, G. (2026). All you need is a Company Brain. Zenodo. https://doi.org/10.5281/zenodo.23589908</span> <button class="copia" type="button" data-testo="cita">Copia</button></p>
+    </div>
+  </section>
+
+  <div class="parte" id="poc">
+    <div class="etichetta">Prova di concetto</div>
+    <h2>L’architettura al lavoro</h2>
+    <p class="intro">Il POC mette al lavoro il cuore del paper su un caso di produzione di documenti aziendali: il piccolo team, il Policy Plane che lo governa fase per fase e le approvazioni umane. Chiedi un documento; il team lo pianifica, lo scrive e lo verifica.</p>
+    <div class="azioni"><a class="pulsante primario" href="https://ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/ui" target="_blank" rel="noopener">Apri Company Brain</a></div>
+  </div>
+
   <section aria-labelledby="t-team">
-    <h2 id="t-team">Il team</h2>
+    <h3 class="sub2" id="t-team">Il team</h3>
     <p class="intro">Ogni agente ha un compito e permessi propri. Sopra di loro il Policy Plane: regole fuori dal modello che decidono quando si passa alla fase successiva.</p>
     <div class="team">
       <article class="ruolo"><img class="ritratto" src="../assets/eroe-orchestratore.jpg" alt="Capitan America, il volto dell'Orchestratore" width="200" height="250" loading="lazy"><h3>Orchestratore</h3><span class="eroe">Capitan America</span><p>Legge la richiesta e propone il piano: incarichi, fasi e criteri di riuscita.</p><p class="motto">guida il team, non tocca la produzione</p></article>
@@ -200,7 +263,7 @@ footer { border-top: 1px solid var(--bordo); padding-top: 18px; color: var(--ten
   </section>
 
   <section id="prova" aria-labelledby="t-prova">
-    <h2 id="t-prova">Come provarlo</h2>
+    <h3 class="sub2" id="t-prova">Come provarlo</h3>
     <ol class="passi">
       <li><div><strong>Accedi</strong><span>Apri Company Brain ed entra con l'account Microsoft abilitato al POC.</span></div></li>
       <li><div><strong>Scrivi cosa ti serve</strong><span>Una frase basta, per esempio «Istruzioni per la prima settimana di un nuovo sviluppatore».</span></div></li>
@@ -210,7 +273,7 @@ footer { border-top: 1px solid var(--bordo); padding-top: 18px; color: var(--ten
   </section>
 
   <section aria-labelledby="t-link">
-    <h2 id="t-link">Link</h2>
+    <h3 class="sub2" id="t-link">Link</h3>
     <ul class="link">
       <li><div class="voce"><a href="https://ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/ui" target="_blank" rel="noopener">Company Brain</a><p>La conversazione con il team: piano, approvazione, monitor e documento finale.</p><span class="indirizzo">ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/ui</span></div><button class="copia" type="button">Copia</button></li>
       <li><div class="voce"><a href="https://ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/auth/login" target="_blank" rel="noopener">Accesso</a><p>Porta direttamente alla pagina di login Microsoft.</p><span class="indirizzo">ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/auth/login</span></div><button class="copia" type="button">Copia</button></li>
@@ -218,7 +281,7 @@ footer { border-top: 1px solid var(--bordo); padding-top: 18px; color: var(--ten
   </section>
 
   <section aria-labelledby="t-stato">
-    <h2 id="t-stato">Stato</h2>
+    <h3 class="sub2" id="t-stato">Stato</h3>
     <dl class="stato">
       <div><dt>Ultimo aggiornamento</dt><dd>16 ottobre 2026</dd></div>
       <div><dt>Versione dell'applicazione</dt><dd>035191a</dd></div>
@@ -235,19 +298,19 @@ footer { border-top: 1px solid var(--bordo); padding-top: 18px; color: var(--ten
   </section>
 
   <footer>
-    <span>Company Brain · prova di concetto</span>
-    <span>Aggiornata a ogni rilascio</span>
+    <span>Company Brain · Giancarlo Sudano</span>
+    <span><a href="https://doi.org/10.5281/zenodo.23589908" style="color:inherit">Paper: doi:10.5281/zenodo.23589908</a></span>
   </footer>
 </div>
 
 <script>
 document.querySelectorAll("button.copia").forEach((b) => {
   b.addEventListener("click", () => {
-    const a = b.parentElement.querySelector("a");
-    const fatto = () => { b.textContent = "Copiato"; setTimeout(() => (b.textContent = "Copia"), 1500); };
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(a.href).then(fatto, () => {});
-    }
+    const id = b.getAttribute("data-testo");
+    const text = id ? document.getElementById(id).textContent : b.parentElement.querySelector("a").href;
+    const label = b.textContent;
+    const done = () => { b.textContent = "Copiato"; setTimeout(() => (b.textContent = label), 1500); };
+    if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, () => {});
   });
 });
 </script>
