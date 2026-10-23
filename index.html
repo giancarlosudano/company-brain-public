@@ -73,6 +73,14 @@ section { display: grid; gap: 16px; }
 h2 { margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -.01em; text-wrap: balance; }
 .intro { margin: 0; color: var(--tenue); max-width: 65ch; }
 
+.paper { display: grid; grid-template-columns: 1fr auto; gap: 6px 18px; align-items: center; background: var(--superficie); border: 1px solid var(--bordo); border-radius: 12px; padding: 18px 20px; text-decoration: none; color: var(--testo); box-shadow: var(--ombra); transition: transform .15s ease; }
+.paper:hover { transform: translateY(-1px); }
+.paper .titolo { font-size: 20px; font-weight: 700; letter-spacing: -.01em; }
+.paper .riassunto { margin: 0; color: var(--tenue); font-size: 15px; grid-column: 1; }
+.paper .doi { font-family: var(--font-dati); font-size: 12px; color: var(--tenue); grid-column: 1; }
+.paper .vai { grid-row: 1 / span 3; grid-column: 2; color: var(--accento); font-weight: 650; white-space: nowrap; }
+@media (max-width: 520px) { .paper { grid-template-columns: 1fr; } .paper .vai { grid-row: auto; grid-column: 1; } }
+
 /* team */
 .team { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
 .ruolo { background: var(--superficie); border: 1px solid var(--bordo); border-radius: 12px; padding: 16px; display: grid; gap: 6px; align-content: start; min-width: 0; }
@@ -148,6 +156,16 @@ footer { border-top: 1px solid var(--bordo); padding-top: 18px; color: var(--ten
       </div>
     </div>
   </header>
+
+  <section aria-labelledby="t-paper">
+    <h2 id="t-paper">Il paper</h2>
+    <a class="paper" href="paper/">
+      <span class="titolo">All you need is a Company Brain</span>
+      <p class="riassunto">L'architettura dietro il POC: un grafo governato di conoscenza, procedure e azioni, un piccolo team di agenti con identità delegate e controllo per fase, un ciclo notturno che lo migliora. In inglese, da leggere online o in PDF.</p>
+      <span class="doi">doi:10.5281/zenodo.23589908</span>
+      <span class="vai">Leggi il paper →</span>
+    </a>
+  </section>
 
   <section aria-labelledby="t-team">
     <h2 id="t-team">Il team</h2>
