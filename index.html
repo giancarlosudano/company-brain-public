@@ -81,6 +81,11 @@ h2 { margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -.01em; text-
 .paper .vai { grid-row: 1 / span 3; grid-column: 2; color: var(--accento); font-weight: 650; white-space: nowrap; }
 @media (max-width: 520px) { .paper { grid-template-columns: 1fr; } .paper .vai { grid-row: auto; grid-column: 1; } }
 
+.sintesi { display: grid; gap: 12px; max-width: 68ch; }
+.sintesi p { margin: 0; text-wrap: pretty; }
+.sintesi p:first-child { font-size: 18px; }
+.sintesi p + p { color: var(--tenue); }
+
 /* team */
 .team { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
 .ruolo { background: var(--superficie); border: 1px solid var(--bordo); border-radius: 12px; padding: 16px; display: grid; gap: 6px; align-content: start; min-width: 0; }
@@ -157,8 +162,13 @@ footer { border-top: 1px solid var(--bordo); padding-top: 18px; color: var(--ten
     </div>
   </header>
 
-  <section aria-labelledby="t-paper">
-    <h2 id="t-paper">Il paper</h2>
+  <section aria-labelledby="t-cosa">
+    <h2 id="t-cosa">Che cos'è il Company Brain</h2>
+    <div class="sintesi">
+      <p>Si parla di imprese popolate da migliaia di agenti AI. Il Company Brain parte da un'idea diversa: ciò che va progettato non è l'agente ma il cervello dell'impresa, un unico grafo governato di ciò che l'azienda sa, di come lavora e di ciò che può fare, con permessi, provenienza e audit su ogni nodo.</p>
+      <p>A eseguirlo è un piccolo team di agenti con ruoli distinti, che agiscono per conto dell'utente e con i privilegi della sola fase in corso. Di notte un processo governato rilegge le tracce del giorno e propone miglioramenti, che entrano solo dopo test e firma umana. Il modello linguistico è il motore e si può cambiare; il cervello resta dell'impresa.</p>
+      <p>Questo POC ne mostra il cuore: il team, il Policy Plane e le approvazioni, su un caso di produzione di documenti aziendali.</p>
+    </div>
     <a class="paper" href="paper/">
       <span class="titolo">All you need is a Company Brain</span>
       <p class="riassunto">L'architettura dietro il POC: un grafo governato di conoscenza, procedure e azioni, un piccolo team di agenti con identità delegate e controllo per fase, un ciclo notturno che lo migliora. In inglese, da leggere online o in PDF.</p>
