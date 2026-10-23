@@ -1,18 +1,21 @@
 <!doctype html>
-<html lang="it">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Company Brain</title>
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="Company Brain: un team di agenti governato che produce documenti aziendali verificati. Accesso al POC e istruzioni per provarlo.">
+<meta name="description" content="Company Brain: a governed team of agents that produces verified business documents. Access to the POC and how to try it.">
 <link rel="icon" type="image/png" href="assets/companybrain.png">
 <meta property="og:title" content="Company Brain">
-<meta property="og:description" content="Un team di agenti governato che produce documenti aziendali verificati.">
+<meta property="og:description" content="A governed team of agents that produces verified business documents.">
 <meta property="og:image" content="assets/companybrain.png">
+<link rel="alternate" hreflang="en" href="https://giancarlosudano.github.io/company-brain-public/">
+<link rel="alternate" hreflang="it" href="https://giancarlosudano.github.io/company-brain-public/it/">
+<link rel="alternate" hreflang="x-default" href="https://giancarlosudano.github.io/company-brain-public/">
 <style>
-/* Layout: testata con l'anello come segno, poi una colonna di blocchi; il colore vivo
-   sta solo nel logo e nel pulsante principale, il resto è neutro. */
+/* Layout: header with the ring as a sign, then a column of blocks; strong color
+   only in the logo and the primary button, the rest is neutral. */
 :root {
   --fondo: #fbfafd;
   --superficie: #ffffff;
@@ -86,6 +89,11 @@ h2 { margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -.01em; text-
 .sintesi p:first-child { font-size: 18px; }
 .sintesi p + p { color: var(--tenue); }
 
+.lingue { justify-self: end; display: inline-flex; gap: 2px; padding: 3px; border: 1px solid var(--bordo); border-radius: 999px; background: var(--superficie); font-size: 13px; font-weight: 650; margin-bottom: -28px; }
+.lingue a { color: var(--tenue); text-decoration: none; padding: 4px 10px; border-radius: 999px; }
+.lingue a[aria-current="page"] { background: var(--accento-tenue); color: var(--accento); }
+.lingue a:hover { color: var(--testo); }
+
 /* team */
 .team { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
 .ruolo { background: var(--superficie); border: 1px solid var(--bordo); border-radius: 12px; padding: 16px; display: grid; gap: 6px; align-content: start; min-width: 0; }
@@ -94,7 +102,7 @@ h2 { margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -.01em; text-
 .ruolo h3 { margin: 4px 0 0; font-size: 16px; }
 .ruolo p { margin: 0; color: var(--tenue); font-size: 14px; }
 .ruolo .motto { color: var(--testo); font-style: italic; font-size: 13px; }
-.ruolo .motto::before { content: "«"; } .ruolo .motto::after { content: "»"; }
+.ruolo .motto::before { content: "“"; } .ruolo .motto::after { content: "”"; }
 .s-orc { background: linear-gradient(135deg, #7b4ce0, #3c7bf0); }
 .s-rea { background: linear-gradient(135deg, #12a5c9, #2fbf71); }
 .s-ese { background: linear-gradient(135deg, #f59e0b, #ef5a3c); }
@@ -148,86 +156,87 @@ footer { border-top: 1px solid var(--bordo); padding-top: 18px; color: var(--ten
 </head>
 <body>
 <div class="pagina">
+  <nav class="lingue" aria-label="Language"><a href="./" aria-current="page" hreflang="en">EN</a><a href="it/" hreflang="it" lang="it">IT</a></nav>
 
   <header class="testata">
-    <img class="anello" src="assets/companybrain.png" alt="Logo di Company Brain: un anello con i colori di Copilot" width="132" height="132">
+    <img class="anello" src="assets/companybrain.png" alt="Company Brain logo: a ring in Copilot colors" width="132" height="132">
     <div>
       <div class="etichetta">POC online</div>
       <h1>Company Brain</h1>
-      <p class="tesi">Un piccolo team di agenti, governato, che trasforma una richiesta in un documento aziendale verificato.</p>
+      <p class="tesi">A small, governed team of agents that turns a request into a verified business document.</p>
       <div class="azioni">
-        <a class="pulsante primario" href="https://ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/ui" target="_blank" rel="noopener">Apri Company Brain</a>
-        <a class="pulsante secondario" href="#prova">Come provarlo</a>
+        <a class="pulsante primario" href="https://ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/ui" target="_blank" rel="noopener">Open Company Brain</a>
+        <a class="pulsante secondario" href="#try">How to try it</a>
       </div>
     </div>
   </header>
 
-  <section aria-labelledby="t-cosa">
-    <h2 id="t-cosa">Che cos'è il Company Brain</h2>
+  <section aria-labelledby="t-what">
+    <h2 id="t-what">What the Company Brain is</h2>
     <div class="sintesi">
-      <p>Si parla di imprese popolate da migliaia di agenti AI. Il Company Brain parte da un'idea diversa: ciò che va progettato non è l'agente ma il cervello dell'impresa, un unico grafo governato di ciò che l'azienda sa, di come lavora e di ciò che può fare, con permessi, provenienza e audit su ogni nodo.</p>
-      <p>A eseguirlo è un piccolo team di agenti con ruoli distinti, che agiscono per conto dell'utente e con i privilegi della sola fase in corso. Di notte un processo governato rilegge le tracce del giorno e propone miglioramenti, che entrano solo dopo test e firma umana. Il modello linguistico è il motore e si può cambiare; il cervello resta dell'impresa.</p>
-      <p>Questo POC ne mostra il cuore: il team, il Policy Plane e le approvazioni, su un caso di produzione di documenti aziendali.</p>
+      <p>Enterprises are told they will run thousands of AI agents. The Company Brain starts from a different idea: what needs designing is not the agent but the enterprise's brain, a single governed graph of what the company knows, how it works and what it can do, with permissions, provenance and audit on every node.</p>
+      <p>A small team of agents with distinct roles executes it, acting on behalf of the user and holding only the privileges of the current phase. At night a governed process rereads the day's traces and proposes improvements, which go live only after tests and human sign-off. The language model is the engine and can be replaced; the brain remains the enterprise's own.</p>
+      <p>This POC shows its core: the team, the Policy Plane and the approvals, on a business-document production case.</p>
     </div>
     <a class="paper" href="paper/">
       <span class="titolo">All you need is a Company Brain</span>
-      <p class="riassunto">L'architettura dietro il POC: un grafo governato di conoscenza, procedure e azioni, un piccolo team di agenti con identità delegate e controllo per fase, un ciclo notturno che lo migliora. In inglese, da leggere online o in PDF.</p>
+      <p class="riassunto">The architecture behind the POC: a governed graph of knowledge, procedures and actions, a small team of agents with delegated identities and per-phase control, a nightly cycle that improves it. Read it online or as a PDF.</p>
       <span class="doi">doi:10.5281/zenodo.23589908</span>
-      <span class="vai">Leggi il paper →</span>
+      <span class="vai">Read the paper →</span>
     </a>
   </section>
 
   <section aria-labelledby="t-team">
-    <h2 id="t-team">Il team</h2>
-    <p class="intro">Ogni agente ha un compito e permessi propri. Sopra di loro il Policy Plane: regole fuori dal modello che decidono quando si passa alla fase successiva.</p>
+    <h2 id="t-team">The team</h2>
+    <p class="intro">Each agent has its own job and its own permissions. Above them sits the Policy Plane: rules outside the model that decide when the work moves to the next phase.</p>
     <div class="team">
-      <article class="ruolo"><img class="ritratto" src="assets/eroe-orchestratore.jpg" alt="Capitan America, il volto dell'Orchestratore" width="200" height="250" loading="lazy"><h3>Orchestratore</h3><span class="eroe">Capitan America</span><p>Legge la richiesta e propone il piano: incarichi, fasi e criteri di riuscita.</p><p class="motto">guida il team, non tocca la produzione</p></article>
-      <article class="ruolo"><img class="ritratto" src="assets/eroe-reader.jpg" alt="Scarlet Witch, il volto del Reader" width="200" height="250" loading="lazy"><h3>Reader</h3><span class="eroe">Scarlet Witch</span><p>Cerca nelle fonti autorizzate e riporta le citazioni.</p><p class="motto">legge la mente; qui, solo le fonti</p></article>
-      <article class="ruolo"><img class="ritratto" src="assets/eroe-esecutore.jpg" alt="Iron Man, il volto dell'Esecutore" width="200" height="250" loading="lazy"><h3>Esecutore</h3><span class="eroe">Iron Man</span><p>Scrive il documento partendo da quello che il Reader ha trovato.</p><p class="motto">mette l’armatura, ma solo con un token</p></article>
-      <article class="ruolo"><img class="ritratto" src="assets/eroe-verificatore.jpg" alt="Doctor Strange, il volto del Verificatore" width="200" height="250" loading="lazy"><h3>Verificatore</h3><span class="eroe">Doctor Strange</span><p>Controlla il risultato con un modello diverso, in modo indipendente da chi l'ha scritto.</p><p class="motto">visti 14.000.605 futuri; verifica anche il tuo</p></article>
-      <article class="ruolo"><img class="ritratto" src="assets/eroe-policy.jpg" alt="Nick Fury, il volto del Policy Plane" width="200" height="250" loading="lazy"><h3>Policy Plane</h3><span class="eroe">Nick Fury</span><p>Niente superpoteri né modello: solo regole. Stesso input, stessa risposta, sempre. Decide fase per fase chi può fare cosa, tiene il budget e chiede la tua approvazione.</p><p class="motto">un occhio, zero allucinazioni</p></article>
+      <article class="ruolo"><img class="ritratto" src="assets/eroe-orchestratore.jpg" alt="Captain America, the face of the Orchestrator" width="200" height="250" loading="lazy"><h3>Orchestrator</h3><span class="eroe">Captain America</span><p>Reads the request and proposes the plan: assignments, phases and success criteria.</p><p class="motto">leads the team, never touches production</p></article>
+      <article class="ruolo"><img class="ritratto" src="assets/eroe-reader.jpg" alt="Scarlet Witch, the face of the Reader" width="200" height="250" loading="lazy"><h3>Reader</h3><span class="eroe">Scarlet Witch</span><p>Searches the authorized sources and brings back the citations.</p><p class="motto">reads minds; here, only sources</p></article>
+      <article class="ruolo"><img class="ritratto" src="assets/eroe-esecutore.jpg" alt="Iron Man, the face of the Executor" width="200" height="250" loading="lazy"><h3>Executor</h3><span class="eroe">Iron Man</span><p>Writes the document from what the Reader has found.</p><p class="motto">suits up, but only with a token</p></article>
+      <article class="ruolo"><img class="ritratto" src="assets/eroe-verificatore.jpg" alt="Doctor Strange, the face of the Verifier" width="200" height="250" loading="lazy"><h3>Verifier</h3><span class="eroe">Doctor Strange</span><p>Checks the result with a different model, independently of whoever wrote it.</p><p class="motto">saw 14,000,605 futures; checks yours too</p></article>
+      <article class="ruolo"><img class="ritratto" src="assets/eroe-policy.jpg" alt="Nick Fury, the face of the Policy Plane" width="200" height="250" loading="lazy"><h3>Policy Plane</h3><span class="eroe">Nick Fury</span><p>No superpowers and no model: only rules. Same input, same answer, every time. It decides phase by phase who may do what, keeps the budget and asks for your approval.</p><p class="motto">one eye, zero hallucinations</p></article>
     </div>
-    <p class="regia">Orchestratore, Reader ed Esecutore lavorano su Claude; il Verificatore su un modello OpenAI. Il Policy Plane non usa modelli: è codice deterministico.</p>
+    <p class="regia">Orchestrator, Reader and Executor run on Claude; the Verifier on an OpenAI model. The Policy Plane uses no model: it is deterministic code.</p>
   </section>
 
-  <section id="prova" aria-labelledby="t-prova">
-    <h2 id="t-prova">Come provarlo</h2>
+  <section id="try" aria-labelledby="t-try">
+    <h2 id="t-try">How to try it</h2>
     <ol class="passi">
-      <li><div><strong>Accedi</strong><span>Apri Company Brain ed entra con l'account Microsoft abilitato al POC.</span></div></li>
-      <li><div><strong>Scrivi cosa ti serve</strong><span>Una frase basta, per esempio «Istruzioni per la prima settimana di un nuovo sviluppatore».</span></div></li>
-      <li><div><strong>Approva il piano</strong><span>Il team propone incarichi e fasi. Puoi approvarlo, chiedere modifiche o rifiutarlo: senza approvazione non parte nulla.</span></div></li>
-      <li><div><strong>Segui il lavoro</strong><span>Il monitor mostra fase per fase cosa fa ogni agente. Alla fine ricevi il documento già verificato.</span></div></li>
+      <li><div><strong>Sign in</strong><span>Open Company Brain and sign in with the Microsoft account enabled for the POC.</span></div></li>
+      <li><div><strong>Say what you need</strong><span>One sentence is enough, for example “Instructions for a new developer's first week”.</span></div></li>
+      <li><div><strong>Approve the plan</strong><span>The team proposes assignments and phases. You can approve it, ask for changes or reject it: nothing starts without your approval.</span></div></li>
+      <li><div><strong>Follow the work</strong><span>The monitor shows, phase by phase, what each agent is doing. At the end you receive the document, already verified.</span></div></li>
     </ol>
   </section>
 
   <section aria-labelledby="t-link">
     <h2 id="t-link">Link</h2>
     <ul class="link">
-      <li><div class="voce"><a href="https://ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/ui" target="_blank" rel="noopener">Company Brain</a><p>La conversazione con il team: piano, approvazione, monitor e documento finale.</p><span class="indirizzo">ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/ui</span></div><button class="copia" type="button">Copia</button></li>
-      <li><div class="voce"><a href="https://ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/auth/login" target="_blank" rel="noopener">Accesso</a><p>Porta direttamente alla pagina di login Microsoft.</p><span class="indirizzo">ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/auth/login</span></div><button class="copia" type="button">Copia</button></li>
+      <li><div class="voce"><a href="https://ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/ui" target="_blank" rel="noopener">Company Brain</a><p>The conversation with the team: plan, approval, monitor and final document.</p><span class="indirizzo">ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/ui</span></div><button class="copia" type="button">Copy</button></li>
+      <li><div class="voce"><a href="https://ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/auth/login" target="_blank" rel="noopener">Sign-in</a><p>Goes straight to the Microsoft sign-in page.</p><span class="indirizzo">ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/auth/login</span></div><button class="copia" type="button">Copy</button></li>
     </ul>
   </section>
 
   <section aria-labelledby="t-stato">
-    <h2 id="t-stato">Stato</h2>
+    <h2 id="t-stato">Status</h2>
     <dl class="stato">
-      <div><dt>Ultimo aggiornamento</dt><dd>16 ottobre 2026</dd></div>
-      <div><dt>Versione dell'applicazione</dt><dd>035191a</dd></div>
-      <div><dt>Versione dell'infrastruttura</dt><dd>ca13b12</dd></div>
-      <div><dt>Ambiente</dt><dd>POC su Azure, Italia Nord</dd></div>
-      <div><dt>Modelli</dt><dd>Claude e OpenAI</dd></div>
-      <div><dt>Sandbox per i file</dt><dd>Accesa su richiesta</dd></div>
+      <div><dt>Last update</dt><dd>October 16, 2026</dd></div>
+      <div><dt>Application version</dt><dd>035191a</dd></div>
+      <div><dt>Infrastructure version</dt><dd>ca13b12</dd></div>
+      <div><dt>Environment</dt><dd>POC on Azure, Italy North</dd></div>
+      <div><dt>Models</dt><dd>Claude and OpenAI</dd></div>
+      <div><dt>File sandbox</dt><dd>On request</dd></div>
     </dl>
     <div class="avvisi">
-      <div><strong>Avvio lento alla prima apertura.</strong> Per contenere i costi i servizi si spengono quando nessuno li usa: dopo una pausa la prima risposta può richiedere fino a un minuto.</div>
-      <div><strong>File Office solo con la sandbox accesa.</strong> Documenti Word, Excel e PowerPoint, analisi dati e lettura dei file caricati richiedono la sandbox, che viene accesa per le sessioni di prova (circa 10 minuti di preavviso). Chat, piano e documento in testo funzionano sempre.</div>
-      <div><strong>Accesso limitato.</strong> Per ora il POC è abilitato per un solo account.</div>
+      <div><strong>Slow first start.</strong> To keep costs down, the services shut down when nobody is using them: after a pause the first answer can take up to a minute.</div>
+      <div><strong>Office files only with the sandbox on.</strong> Word, Excel and PowerPoint documents, data analysis and reading uploaded files require the sandbox, which is switched on for trial sessions (about 10 minutes' notice). Chat, plan and text documents always work.</div>
+      <div><strong>Limited access.</strong> For now the POC is enabled for a single account.</div>
     </div>
   </section>
 
   <footer>
-    <span>Company Brain · prova di concetto</span>
-    <span>Aggiornata a ogni rilascio</span>
+    <span>Company Brain · proof of concept</span>
+    <span>Updated at every release</span>
   </footer>
 </div>
 
@@ -235,7 +244,7 @@ footer { border-top: 1px solid var(--bordo); padding-top: 18px; color: var(--ten
 document.querySelectorAll("button.copia").forEach((b) => {
   b.addEventListener("click", () => {
     const a = b.parentElement.querySelector("a");
-    const fatto = () => { b.textContent = "Copiato"; setTimeout(() => (b.textContent = "Copia"), 1500); };
+    const fatto = () => { b.textContent = "Copied"; setTimeout(() => (b.textContent = "Copy"), 1500); };
     if (navigator.clipboard) {
       navigator.clipboard.writeText(a.href).then(fatto, () => {});
     }

@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Company Brain</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Company Brain: un team di agenti governato che produce documenti aziendali verificati. Accesso al POC e istruzioni per provarlo.">
+<link rel="icon" type="image/png" href="../assets/companybrain.png">
+<meta property="og:title" content="Company Brain">
+<meta property="og:description" content="Un team di agenti governato che produce documenti aziendali verificati.">
+<meta property="og:image" content="../assets/companybrain.png">
+<link rel="alternate" hreflang="en" href="https://giancarlosudano.github.io/company-brain-public/">
+<link rel="alternate" hreflang="it" href="https://giancarlosudano.github.io/company-brain-public/it/">
+<link rel="alternate" hreflang="x-default" href="https://giancarlosudano.github.io/company-brain-public/">
+<style>
+/* Layout: testata con l'anello come segno, poi una colonna di blocchi; il colore vivo
+   sta solo nel logo e nel pulsante principale, il resto è neutro. */
+:root {
+  --fondo: #fbfafd;
+  --superficie: #ffffff;
+  --testo: #1f1d24;
+  --tenue: #5d5868;
+  --bordo: #e4e1ea;
+  --accento: #643fb2;
+  --accento-tenue: #f3eefc;
+  --successo: #0e700e;
+  --successo-tenue: #eef8ee;
+  --avviso: #9a4a0c;
+  --avviso-tenue: #fdf4ec;
+  --ombra: 0 1px 2px rgba(40, 20, 80, .06), 0 8px 24px rgba(40, 20, 80, .06);
+  --font: Aptos, "Segoe UI Variable", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", sans-serif;
+  --font-dati: "Cascadia Mono", "SF Mono", Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fondo: #121016; --superficie: #1b1820; --testo: #eeebf3; --tenue: #a7a1b2; --bordo: #2f2b37;
+    --accento: #b99cf2; --accento-tenue: #261f33; --successo: #86d486; --successo-tenue: #172517;
+    --avviso: #f0a874; --avviso-tenue: #2b1f17;
+    --ombra: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .25);
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--fondo); color: var(--testo); font-family: var(--font);
+  font-size: 16px; line-height: 1.55;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+  padding-block: max(32px, env(safe-area-inset-top, 0px)) max(56px, env(safe-area-inset-bottom, 0px));
+}
+img { max-width: 100%; }
+.pagina { max-width: 880px; margin: 0 auto; display: grid; gap: 48px; }
+
+/* testata */
+.testata { display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; }
+.anello { width: 132px; height: 132px; filter: drop-shadow(0 10px 28px rgba(100, 63, 178, .28)); }
+.testata h1 { margin: 0; font-size: clamp(34px, 5vw, 48px); line-height: 1.05; font-weight: 700; letter-spacing: -.02em; }
+.testata .tesi { margin: 10px 0 0; font-size: 19px; color: var(--tenue); max-width: 46ch; text-wrap: pretty; }
+.etichetta { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 650; letter-spacing: .08em; text-transform: uppercase; color: var(--accento); margin-bottom: 10px; }
+.etichetta::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--successo); box-shadow: 0 0 0 3px var(--successo-tenue); }
+.azioni { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+.pulsante {
+  display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px; border-radius: 10px;
+  font-weight: 650; text-decoration: none; font-size: 16px; transition: transform .15s ease, box-shadow .15s ease;
+}
+.pulsante.primario { background: var(--accento); color: var(--fondo); box-shadow: var(--ombra); }
+.pulsante.secondario { background: var(--superficie); color: var(--accento); border: 1px solid var(--bordo); }
+.pulsante:hover { transform: translateY(-1px); }
+.pulsante:focus-visible, a:focus-visible, button:focus-visible { outline: 2px solid var(--accento); outline-offset: 3px; }
+
+/* blocchi */
+section { display: grid; gap: 16px; }
+h2 { margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -.01em; text-wrap: balance; }
+.intro { margin: 0; color: var(--tenue); max-width: 65ch; }
+
+.paper { display: grid; grid-template-columns: 1fr auto; gap: 6px 18px; align-items: center; background: var(--superficie); border: 1px solid var(--bordo); border-radius: 12px; padding: 18px 20px; text-decoration: none; color: var(--testo); box-shadow: var(--ombra); transition: transform .15s ease; }
+.paper:hover { transform: translateY(-1px); }
+.paper .titolo { font-size: 20px; font-weight: 700; letter-spacing: -.01em; }
+.paper .riassunto { margin: 0; color: var(--tenue); font-size: 15px; grid-column: 1; }
+.paper .doi { font-family: var(--font-dati); font-size: 12px; color: var(--tenue); grid-column: 1; }
+.paper .vai { grid-row: 1 / span 3; grid-column: 2; color: var(--accento); font-weight: 650; white-space: nowrap; }
+@media (max-width: 520px) { .paper { grid-template-columns: 1fr; } .paper .vai { grid-row: auto; grid-column: 1; } }
+
+.sintesi { display: grid; gap: 12px; max-width: 68ch; }
+.sintesi p { margin: 0; text-wrap: pretty; }
+.sintesi p:first-child { font-size: 18px; }
+.sintesi p + p { color: var(--tenue); }
+
+.lingue { justify-self: end; display: inline-flex; gap: 2px; padding: 3px; border: 1px solid var(--bordo); border-radius: 999px; background: var(--superficie); font-size: 13px; font-weight: 650; margin-bottom: -28px; }
+.lingue a { color: var(--tenue); text-decoration: none; padding: 4px 10px; border-radius: 999px; }
+.lingue a[aria-current="page"] { background: var(--accento-tenue); color: var(--accento); }
+.lingue a:hover { color: var(--testo); }
+
+/* team */
+.team { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.ruolo { background: var(--superficie); border: 1px solid var(--bordo); border-radius: 12px; padding: 16px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.ruolo .ritratto { width: 100%; max-width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 8px; display: block; background: var(--accento-tenue); }
+.ruolo .eroe { font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--tenue); }
+.ruolo h3 { margin: 4px 0 0; font-size: 16px; }
+.ruolo p { margin: 0; color: var(--tenue); font-size: 14px; }
+.ruolo .motto { color: var(--testo); font-style: italic; font-size: 13px; }
+.ruolo .motto::before { content: "«"; } .ruolo .motto::after { content: "»"; }
+.s-orc { background: linear-gradient(135deg, #7b4ce0, #3c7bf0); }
+.s-rea { background: linear-gradient(135deg, #12a5c9, #2fbf71); }
+.s-ese { background: linear-gradient(135deg, #f59e0b, #ef5a3c); }
+.s-ver { background: linear-gradient(135deg, #e0408a, #8b3fd8); }
+.regia { margin: 0; font-size: 14px; color: var(--tenue); }
+
+/* prova */
+ol.passi { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; counter-reset: passo; background: var(--superficie); border: 1px solid var(--bordo); border-radius: 12px; }
+ol.passi li { counter-increment: passo; display: grid; grid-template-columns: 32px 1fr; gap: 14px; padding: 16px 18px; }
+ol.passi li + li { border-top: 1px solid var(--bordo); }
+ol.passi li::before { content: counter(passo); width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 14px; color: var(--accento); background: var(--accento-tenue); }
+ol.passi strong { display: block; }
+ol.passi span { color: var(--tenue); font-size: 15px; }
+
+/* link */
+ul.link { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+ul.link li { background: var(--superficie); border: 1px solid var(--bordo); border-radius: 12px; padding: 14px 16px; display: grid; grid-template-columns: 1fr auto; gap: 4px 14px; align-items: center; }
+.voce { min-width: 0; display: grid; gap: 2px; }
+.voce a { color: var(--accento); font-weight: 650; text-decoration: none; overflow-wrap: anywhere; }
+.voce a:hover { text-decoration: underline; }
+.voce p { margin: 0; color: var(--tenue); font-size: 14px; }
+.indirizzo { font-family: var(--font-dati); font-size: 12px; color: var(--tenue); overflow-wrap: anywhere; }
+button.copia { font: inherit; font-size: 13px; font-weight: 600; color: var(--accento); background: var(--accento-tenue); border: 1px solid transparent; border-radius: 8px; padding: 6px 12px; cursor: pointer; white-space: nowrap; }
+button.copia:hover { border-color: var(--accento); }
+
+/* stato */
+.stato { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--bordo); border: 1px solid var(--bordo); border-radius: 12px; overflow: hidden; margin: 0; }
+.stato div { background: var(--superficie); padding: 14px 16px; display: grid; gap: 2px; min-width: 0; }
+.stato dt { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--tenue); }
+.stato dd { margin: 0; font-weight: 650; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.avvisi { margin: 0; padding: 14px 16px; background: var(--avviso-tenue); color: var(--testo); border-radius: 12px; font-size: 14px; display: grid; gap: 6px; }
+.avvisi strong { color: var(--avviso); }
+
+footer { border-top: 1px solid var(--bordo); padding-top: 18px; color: var(--tenue); font-size: 13px; display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between; }
+
+@media (max-width: 860px) { .team { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .team { grid-template-columns: repeat(2, minmax(0, 1fr)); } .stato { grid-template-columns: 1fr; } }
+@media (max-width: 520px) {
+  .testata { grid-template-columns: 1fr; gap: 18px; }
+  .anello { width: 96px; height: 96px; }
+  .team { grid-template-columns: 1fr; }
+  ul.link li { grid-template-columns: 1fr; }
+  button.copia { justify-self: start; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .anello { animation: respiro 6s ease-in-out infinite; }
+  @keyframes respiro { 50% { transform: scale(1.03); filter: drop-shadow(0 12px 34px rgba(100, 63, 178, .36)); } }
+}
+@media (prefers-reduced-motion: reduce) { .pulsante { transition: none; } }
+</style>
+</head>
+<body>
+<div class="pagina">
+  <nav class="lingue" aria-label="Lingua"><a href="../" hreflang="en" lang="en">EN</a><a href="./" aria-current="page" hreflang="it">IT</a></nav>
+
+  <header class="testata">
+    <img class="anello" src="../assets/companybrain.png" alt="Logo di Company Brain: un anello con i colori di Copilot" width="132" height="132">
+    <div>
+      <div class="etichetta">POC online</div>
+      <h1>Company Brain</h1>
+      <p class="tesi">Un piccolo team di agenti, governato, che trasforma una richiesta in un documento aziendale verificato.</p>
+      <div class="azioni">
+        <a class="pulsante primario" href="https://ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/ui" target="_blank" rel="noopener">Apri Company Brain</a>
+        <a class="pulsante secondario" href="#prova">Come provarlo</a>
+      </div>
+    </div>
+  </header>
+
+  <section aria-labelledby="t-cosa">
+    <h2 id="t-cosa">Che cos'è il Company Brain</h2>
+    <div class="sintesi">
+      <p>Si parla di imprese popolate da migliaia di agenti AI. Il Company Brain parte da un'idea diversa: ciò che va progettato non è l'agente ma il cervello dell'impresa, un unico grafo governato di ciò che l'azienda sa, di come lavora e di ciò che può fare, con permessi, provenienza e audit su ogni nodo.</p>
+      <p>A eseguirlo è un piccolo team di agenti con ruoli distinti, che agiscono per conto dell'utente e con i privilegi della sola fase in corso. Di notte un processo governato rilegge le tracce del giorno e propone miglioramenti, che entrano solo dopo test e firma umana. Il modello linguistico è il motore e si può cambiare; il cervello resta dell'impresa.</p>
+      <p>Questo POC ne mostra il cuore: il team, il Policy Plane e le approvazioni, su un caso di produzione di documenti aziendali.</p>
+    </div>
+    <a class="paper" href="../paper/">
+      <span class="titolo">All you need is a Company Brain</span>
+      <p class="riassunto">L'architettura dietro il POC: un grafo governato di conoscenza, procedure e azioni, un piccolo team di agenti con identità delegate e controllo per fase, un ciclo notturno che lo migliora. In inglese, da leggere online o in PDF.</p>
+      <span class="doi">doi:10.5281/zenodo.23589908</span>
+      <span class="vai">Leggi il paper →</span>
+    </a>
+  </section>
+
+  <section aria-labelledby="t-team">
+    <h2 id="t-team">Il team</h2>
+    <p class="intro">Ogni agente ha un compito e permessi propri. Sopra di loro il Policy Plane: regole fuori dal modello che decidono quando si passa alla fase successiva.</p>
+    <div class="team">
+      <article class="ruolo"><img class="ritratto" src="../assets/eroe-orchestratore.jpg" alt="Capitan America, il volto dell'Orchestratore" width="200" height="250" loading="lazy"><h3>Orchestratore</h3><span class="eroe">Capitan America</span><p>Legge la richiesta e propone il piano: incarichi, fasi e criteri di riuscita.</p><p class="motto">guida il team, non tocca la produzione</p></article>
+      <article class="ruolo"><img class="ritratto" src="../assets/eroe-reader.jpg" alt="Scarlet Witch, il volto del Reader" width="200" height="250" loading="lazy"><h3>Reader</h3><span class="eroe">Scarlet Witch</span><p>Cerca nelle fonti autorizzate e riporta le citazioni.</p><p class="motto">legge la mente; qui, solo le fonti</p></article>
+      <article class="ruolo"><img class="ritratto" src="../assets/eroe-esecutore.jpg" alt="Iron Man, il volto dell'Esecutore" width="200" height="250" loading="lazy"><h3>Esecutore</h3><span class="eroe">Iron Man</span><p>Scrive il documento partendo da quello che il Reader ha trovato.</p><p class="motto">mette l’armatura, ma solo con un token</p></article>
+      <article class="ruolo"><img class="ritratto" src="../assets/eroe-verificatore.jpg" alt="Doctor Strange, il volto del Verificatore" width="200" height="250" loading="lazy"><h3>Verificatore</h3><span class="eroe">Doctor Strange</span><p>Controlla il risultato con un modello diverso, in modo indipendente da chi l'ha scritto.</p><p class="motto">visti 14.000.605 futuri; verifica anche il tuo</p></article>
+      <article class="ruolo"><img class="ritratto" src="../assets/eroe-policy.jpg" alt="Nick Fury, il volto del Policy Plane" width="200" height="250" loading="lazy"><h3>Policy Plane</h3><span class="eroe">Nick Fury</span><p>Niente superpoteri né modello: solo regole. Stesso input, stessa risposta, sempre. Decide fase per fase chi può fare cosa, tiene il budget e chiede la tua approvazione.</p><p class="motto">un occhio, zero allucinazioni</p></article>
+    </div>
+    <p class="regia">Orchestratore, Reader ed Esecutore lavorano su Claude; il Verificatore su un modello OpenAI. Il Policy Plane non usa modelli: è codice deterministico.</p>
+  </section>
+
+  <section id="prova" aria-labelledby="t-prova">
+    <h2 id="t-prova">Come provarlo</h2>
+    <ol class="passi">
+      <li><div><strong>Accedi</strong><span>Apri Company Brain ed entra con l'account Microsoft abilitato al POC.</span></div></li>
+      <li><div><strong>Scrivi cosa ti serve</strong><span>Una frase basta, per esempio «Istruzioni per la prima settimana di un nuovo sviluppatore».</span></div></li>
+      <li><div><strong>Approva il piano</strong><span>Il team propone incarichi e fasi. Puoi approvarlo, chiedere modifiche o rifiutarlo: senza approvazione non parte nulla.</span></div></li>
+      <li><div><strong>Segui il lavoro</strong><span>Il monitor mostra fase per fase cosa fa ogni agente. Alla fine ricevi il documento già verificato.</span></div></li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="t-link">
+    <h2 id="t-link">Link</h2>
+    <ul class="link">
+      <li><div class="voce"><a href="https://ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/ui" target="_blank" rel="noopener">Company Brain</a><p>La conversazione con il team: piano, approvazione, monitor e documento finale.</p><span class="indirizzo">ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/ui</span></div><button class="copia" type="button">Copia</button></li>
+      <li><div class="voce"><a href="https://ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/auth/login" target="_blank" rel="noopener">Accesso</a><p>Porta direttamente alla pagina di login Microsoft.</p><span class="indirizzo">ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/auth/login</span></div><button class="copia" type="button">Copia</button></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="t-stato">
+    <h2 id="t-stato">Stato</h2>
+    <dl class="stato">
+      <div><dt>Ultimo aggiornamento</dt><dd>16 ottobre 2026</dd></div>
+      <div><dt>Versione dell'applicazione</dt><dd>035191a</dd></div>
+      <div><dt>Versione dell'infrastruttura</dt><dd>ca13b12</dd></div>
+      <div><dt>Ambiente</dt><dd>POC su Azure, Italia Nord</dd></div>
+      <div><dt>Modelli</dt><dd>Claude e OpenAI</dd></div>
+      <div><dt>Sandbox per i file</dt><dd>Accesa su richiesta</dd></div>
+    </dl>
+    <div class="avvisi">
+      <div><strong>Avvio lento alla prima apertura.</strong> Per contenere i costi i servizi si spengono quando nessuno li usa: dopo una pausa la prima risposta può richiedere fino a un minuto.</div>
+      <div><strong>File Office solo con la sandbox accesa.</strong> Documenti Word, Excel e PowerPoint, analisi dati e lettura dei file caricati richiedono la sandbox, che viene accesa per le sessioni di prova (circa 10 minuti di preavviso). Chat, piano e documento in testo funzionano sempre.</div>
+      <div><strong>Accesso limitato.</strong> Per ora il POC è abilitato per un solo account.</div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Company Brain · prova di concetto</span>
+    <span>Aggiornata a ogni rilascio</span>
+  </footer>
+</div>
+
+<script>
+document.querySelectorAll("button.copia").forEach((b) => {
+  b.addEventListener("click", () => {
+    const a = b.parentElement.querySelector("a");
+    const fatto = () => { b.textContent = "Copiato"; setTimeout(() => (b.textContent = "Copia"), 1500); };
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(a.href).then(fatto, () => {});
+    }
+  });
+});
+</script>
+</body>
+</html>
