@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Company Brain · il paper e la prova di concetto</title>
+<title>Company Brain · link</title>
 <meta name="robots" content="noindex, follow">
-<meta name="description" content="All you need is a Company Brain: non migliaia di agenti, ma un unico grafo governato di ciò che l’impresa sa, di come lavora e di ciò che può fare, eseguito da un piccolo team di agenti. Paper, edizione web e prova di concetto.">
+<meta name="description" content="Company Brain: i pitch, le demo per industry, il paper e la prova di concetto, in un solo posto.">
 <link rel="canonical" href="https://giancarlosudano.github.io/company-brain-public/it/">
 <link rel="alternate" hreflang="en" href="https://giancarlosudano.github.io/company-brain-public/">
 <link rel="alternate" hreflang="it" href="https://giancarlosudano.github.io/company-brain-public/it/">
@@ -13,37 +13,26 @@
 <link rel="icon" type="image/png" href="../assets/companybrain.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Company Brain">
-<meta property="og:description" content="Non migliaia di agenti: un solo cervello governato per impresa, eseguito da un piccolo team di agenti.">
+<meta property="og:description" content="I pitch, le demo per industry, il paper e la prova di concetto, in un solo posto.">
 <meta property="og:url" content="https://giancarlosudano.github.io/company-brain-public/it/">
-<meta property="og:image" content="https://giancarlosudano.github.io/company-brain-public/it/paper/img/og.png">
+<meta property="og:image" content="https://giancarlosudano.github.io/company-brain-public/paper/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <style>
-/* Layout: header with the ring as a sign, then a column of blocks; strong color
-   only in the logo and the primary button, the rest is neutral. */
+/* A page of links: a short header, then groups of cards (preview, title, one line, open and copy).
+   Strong color only in the logo and the primary buttons; the rest is neutral. Same layout in ../index.html. */
 :root {
-  --fondo: #fbfafd;
-  --superficie: #ffffff;
-  --testo: #1f1d24;
-  --tenue: #5d5868;
-  --bordo: #e4e1ea;
-  --accento: #643fb2;
-  --accento-tenue: #f3eefc;
-  --successo: #0e700e;
-  --successo-tenue: #eef8ee;
-  --avviso: #9a4a0c;
-  --avviso-tenue: #fdf4ec;
+  --fondo: #fbfafd; --superficie: #ffffff; --testo: #1f1d24; --tenue: #5d5868; --bordo: #e4e1ea;
+  --accento: #643fb2; --accento-tenue: #f3eefc;
   --ombra: 0 1px 2px rgba(40, 20, 80, .06), 0 8px 24px rgba(40, 20, 80, .06);
   --font: Aptos, "Segoe UI Variable", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", sans-serif;
-  --font-dati: "Cascadia Mono", "SF Mono", Menlo, Consolas, monospace;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root {
     --fondo: #121016; --superficie: #1b1820; --testo: #eeebf3; --tenue: #a7a1b2; --bordo: #2f2b37;
-    --accento: #b99cf2; --accento-tenue: #261f33; --successo: #86d486; --successo-tenue: #172517;
-    --avviso: #f0a874; --avviso-tenue: #2b1f17;
+    --accento: #b99cf2; --accento-tenue: #261f33;
     --ombra: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .25);
     color-scheme: dark;
   }
@@ -51,143 +40,55 @@
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 body {
-  margin: 0; background: var(--fondo); color: var(--testo); font-family: var(--font);
-  font-size: 16px; line-height: 1.55;
-  padding-left: max(20px, env(safe-area-inset-left, 0px));
-  padding-right: max(20px, env(safe-area-inset-right, 0px));
-  padding-block: max(32px, env(safe-area-inset-top, 0px)) max(56px, env(safe-area-inset-bottom, 0px));
+  margin: 0; background: var(--fondo); color: var(--testo); font-family: var(--font); font-size: 16px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: max(28px, env(safe-area-inset-top, 0px)) max(48px, env(safe-area-inset-bottom, 0px));
 }
-img { max-width: 100%; }
-.pagina { max-width: 880px; margin: 0 auto; display: grid; gap: 48px; }
+img { max-width: 100%; display: block; }
+.pagina { max-width: 1000px; margin: 0 auto; display: grid; gap: 40px; }
 
-/* testata */
-.testata { display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; }
-.anello { width: 132px; height: 132px; filter: drop-shadow(0 10px 28px rgba(100, 63, 178, .28)); }
-.testata h1 { margin: 0; font-size: clamp(34px, 5vw, 48px); line-height: 1.05; font-weight: 700; letter-spacing: -.02em; }
-.testata .tesi { margin: 10px 0 0; font-size: 19px; color: var(--tenue); max-width: 46ch; text-wrap: pretty; }
-.etichetta { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 650; letter-spacing: .08em; text-transform: uppercase; color: var(--accento); margin-bottom: 10px; }
-.etichetta::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--successo); box-shadow: 0 0 0 3px var(--successo-tenue); }
-.azioni { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
-.pulsante {
-  display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px; border-radius: 10px;
-  font-weight: 650; text-decoration: none; font-size: 16px; transition: transform .15s ease, box-shadow .15s ease;
-}
-.pulsante.primario { background: var(--accento); color: var(--fondo); box-shadow: var(--ombra); }
-.pulsante.secondario { background: var(--superficie); color: var(--accento); border: 1px solid var(--bordo); }
-.pulsante:hover { transform: translateY(-1px); }
+.lingue { justify-self: end; display: inline-flex; gap: 2px; padding: 3px; border: 1px solid var(--bordo); border-radius: 999px; background: var(--superficie); font-size: 13px; font-weight: 650; margin-bottom: -24px; }
+.lingue a { color: var(--tenue); text-decoration: none; padding: 4px 10px; border-radius: 999px; }
+.lingue a[aria-current="page"] { background: var(--accento-tenue); color: var(--accento); }
+.lingue a:hover { color: var(--testo); }
+
+.testata { display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: center; }
+.anello { width: 84px; height: 84px; filter: drop-shadow(0 8px 22px rgba(100, 63, 178, .28)); }
+.testata h1 { margin: 0; font-size: clamp(30px, 4.4vw, 40px); line-height: 1.05; font-weight: 700; letter-spacing: -.02em; }
+.testata p { margin: 6px 0 0; color: var(--tenue); font-size: 17px; text-wrap: pretty; }
+
+section { display: grid; gap: 14px; }
+h2 { margin: 0; font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--tenue); }
+.griglia { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+
+.card { background: var(--superficie); border: 1px solid var(--bordo); border-radius: 14px; box-shadow: var(--ombra); overflow: hidden; display: grid; grid-template-rows: auto 1fr; min-width: 0; }
+.anteprima { display: block; aspect-ratio: 16 / 9; background: #0b1020; overflow: hidden; }
+.anteprima img { width: 100%; height: 100%; object-fit: cover; transition: transform .25s ease; }
+.anteprima:hover img { transform: scale(1.02); }
+.anteprima.carta { background: #fff; }
+.corpo { padding: 16px 18px 18px; display: grid; gap: 6px; align-content: start; }
+.livello { justify-self: start; font-size: 12px; font-weight: 650; letter-spacing: .04em; color: var(--accento); background: var(--accento-tenue); border-radius: 999px; padding: 2px 10px; }
+.card h3 { margin: 2px 0 0; font-size: 19px; letter-spacing: -.01em; }
+.card p { margin: 0; color: var(--tenue); font-size: 15px; text-wrap: pretty; }
+.azioni { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; align-items: center; }
+.pulsante { display: inline-flex; align-items: center; padding: 8px 14px; border-radius: 9px; font-weight: 650; font-size: 14px; text-decoration: none; border: 1px solid var(--bordo); background: var(--superficie); color: var(--accento); }
+.pulsante.primario { background: var(--accento); border-color: var(--accento); color: var(--fondo); }
+.pulsante:hover { border-color: var(--accento); }
+button.copia { font: inherit; font-size: 13px; font-weight: 600; color: var(--tenue); background: none; border: 0; padding: 8px 6px; cursor: pointer; }
+button.copia:hover { color: var(--accento); }
 .pulsante:focus-visible, a:focus-visible, button:focus-visible { outline: 2px solid var(--accento); outline-offset: 3px; }
 
-/* blocchi */
-section { display: grid; gap: 16px; }
-h2 { margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -.01em; text-wrap: balance; }
-.intro { margin: 0; color: var(--tenue); max-width: 65ch; }
+.scuro { display: none; }
+@media (prefers-color-scheme: dark) { .anteprima.carta { background: #12161c; } .chiaro { display: none; } .scuro { display: block; } }
+.team { display: grid; grid-template-columns: repeat(5, 1fr); height: 100%; }
+.team img { width: 100%; height: 100%; object-fit: cover; }
 
-.paper { display: grid; grid-template-columns: 1fr auto; gap: 6px 18px; align-items: center; background: var(--superficie); border: 1px solid var(--bordo); border-radius: 12px; padding: 18px 20px; text-decoration: none; color: var(--testo); box-shadow: var(--ombra); transition: transform .15s ease; }
-.paper:hover { transform: translateY(-1px); }
-.paper .titolo { font-size: 20px; font-weight: 700; letter-spacing: -.01em; }
-.paper .riassunto { margin: 0; color: var(--tenue); font-size: 15px; grid-column: 1; }
-.paper .doi { font-family: var(--font-dati); font-size: 12px; color: var(--tenue); grid-column: 1; }
-.paper .vai { grid-row: 1 / span 3; grid-column: 2; color: var(--accento); font-weight: 650; white-space: nowrap; }
-@media (max-width: 520px) { .paper { grid-template-columns: 1fr; } .paper .vai { grid-row: auto; grid-column: 1; } }
+footer { border-top: 1px solid var(--bordo); padding-top: 16px; color: var(--tenue); font-size: 13px; display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between; }
+footer a { color: inherit; }
 
-.sintesi { display: grid; gap: 12px; max-width: 68ch; }
-.sintesi p { margin: 0; text-wrap: pretty; }
-.sintesi p:first-child { font-size: 18px; }
-.sintesi p + p { color: var(--tenue); }
-
-.lingue { justify-self: end; display: inline-flex; gap: 2px; padding: 3px; border: 1px solid var(--bordo); border-radius: 999px; background: var(--superficie); font-size: 13px; font-weight: 650; margin-bottom: -28px; }
-.lingue a { color: var(--tenue); text-decoration: none; padding: 4px 10px; border-radius: 999px; }
-.lingue a[aria-current="page"] { background: var(--accento-tenue); color: var(--accento); }
-.lingue a:hover { color: var(--testo); }
-
-/* team */
-.team { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
-.ruolo { background: var(--superficie); border: 1px solid var(--bordo); border-radius: 12px; padding: 16px; display: grid; gap: 6px; align-content: start; min-width: 0; }
-.ruolo .ritratto { width: 100%; max-width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 8px; display: block; background: var(--accento-tenue); }
-.ruolo .eroe { font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--tenue); }
-.ruolo h3 { margin: 4px 0 0; font-size: 16px; }
-.ruolo p { margin: 0; color: var(--tenue); font-size: 14px; }
-.ruolo .motto { color: var(--testo); font-style: italic; font-size: 13px; }
-.ruolo .motto::before { content: "“"; } .ruolo .motto::after { content: "”"; }
-.s-orc { background: linear-gradient(135deg, #7b4ce0, #3c7bf0); }
-.s-rea { background: linear-gradient(135deg, #12a5c9, #2fbf71); }
-.s-ese { background: linear-gradient(135deg, #f59e0b, #ef5a3c); }
-.s-ver { background: linear-gradient(135deg, #e0408a, #8b3fd8); }
-.regia { margin: 0; font-size: 14px; color: var(--tenue); }
-
-/* prova */
-ol.passi { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; counter-reset: passo; background: var(--superficie); border: 1px solid var(--bordo); border-radius: 12px; }
-ol.passi li { counter-increment: passo; display: grid; grid-template-columns: 32px 1fr; gap: 14px; padding: 16px 18px; }
-ol.passi li + li { border-top: 1px solid var(--bordo); }
-ol.passi li::before { content: counter(passo); width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 14px; color: var(--accento); background: var(--accento-tenue); }
-ol.passi strong { display: block; }
-ol.passi span { color: var(--tenue); font-size: 15px; }
-
-/* link */
-ul.link { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
-ul.link li { background: var(--superficie); border: 1px solid var(--bordo); border-radius: 12px; padding: 14px 16px; display: grid; grid-template-columns: 1fr auto; gap: 4px 14px; align-items: center; }
-.voce { min-width: 0; display: grid; gap: 2px; }
-.voce a { color: var(--accento); font-weight: 650; text-decoration: none; overflow-wrap: anywhere; }
-.voce a:hover { text-decoration: underline; }
-.voce p { margin: 0; color: var(--tenue); font-size: 14px; }
-.indirizzo { font-family: var(--font-dati); font-size: 12px; color: var(--tenue); overflow-wrap: anywhere; }
-button.copia { font: inherit; font-size: 13px; font-weight: 600; color: var(--accento); background: var(--accento-tenue); border: 1px solid transparent; border-radius: 8px; padding: 6px 12px; cursor: pointer; white-space: nowrap; }
-button.copia:hover { border-color: var(--accento); }
-
-/* stato */
-.stato { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--bordo); border: 1px solid var(--bordo); border-radius: 12px; overflow: hidden; margin: 0; }
-.stato div { background: var(--superficie); padding: 14px 16px; display: grid; gap: 2px; min-width: 0; }
-.stato dt { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--tenue); }
-.stato dd { margin: 0; font-weight: 650; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
-.avvisi { margin: 0; padding: 14px 16px; background: var(--avviso-tenue); color: var(--testo); border-radius: 12px; font-size: 14px; display: grid; gap: 6px; }
-.avvisi strong { color: var(--avviso); }
-
-footer { border-top: 1px solid var(--bordo); padding-top: 18px; color: var(--tenue); font-size: 13px; display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between; }
-
-@media (max-width: 860px) { .team { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-@media (max-width: 760px) { .team { grid-template-columns: repeat(2, minmax(0, 1fr)); } .stato { grid-template-columns: 1fr; } }
-@media (max-width: 520px) {
-  .testata { grid-template-columns: 1fr; gap: 18px; }
-  .anello { width: 96px; height: 96px; }
-  .team { grid-template-columns: 1fr; }
-  ul.link li { grid-template-columns: 1fr; }
-  button.copia { justify-self: start; }
-}
-@media (prefers-reduced-motion: no-preference) {
-  .anello { animation: respiro 6s ease-in-out infinite; }
-  @keyframes respiro { 50% { transform: scale(1.03); filter: drop-shadow(0 12px 34px rgba(100, 63, 178, .36)); } }
-}
-@media (prefers-reduced-motion: reduce) { .pulsante { transition: none; } }
-
-/* paper first: hero figure, pillars, paper card; the POC is a second, clearly separated part */
-.hero { margin: 0; }
-.hero img { width: 100%; height: auto; display: block; border-radius: 14px; border: 1px solid var(--bordo); background: #fff; box-shadow: var(--ombra); }
-.hero .scuro { display: none; }
-@media (prefers-color-scheme: dark) { .hero .chiaro { display: none; } .hero .scuro { display: block; background: #12161c; } }
-.hero figcaption { margin-top: 10px; font-size: 13px; color: var(--tenue); }
-.pilastri { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; counter-reset: p; }
-.pilastri li { counter-increment: p; background: var(--superficie); border: 1px solid var(--bordo); border-radius: 12px; padding: 16px; display: grid; gap: 6px; align-content: start; min-width: 0; }
-.pilastri li::before { content: counter(p); width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 13px; color: var(--accento); background: var(--accento-tenue); }
-.pilastri h3 { margin: 4px 0 0; font-size: 15.5px; line-height: 1.25; }
-.pilastri p { margin: 0; color: var(--tenue); font-size: 14px; line-height: 1.5; }
-.scheda { background: var(--superficie); border: 1px solid var(--bordo); border-radius: 14px; padding: 22px 24px; box-shadow: var(--ombra); display: grid; gap: 14px; }
-.scheda .tit { margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -.01em; }
-.scheda .sub { margin: 0; color: var(--tenue); font-style: italic; max-width: 70ch; }
-.scheda .meta { margin: 0; font-size: 14px; color: var(--tenue); display: flex; flex-wrap: wrap; gap: 4px 16px; }
-.scheda .meta code { font-family: var(--font-dati); font-size: 13px; }
-.scheda .azioni { margin-top: 2px; }
-.cita { margin: 0; font-size: 13px; color: var(--tenue); display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
-.cita span { font-family: var(--font-dati); font-size: 12px; overflow-wrap: anywhere; }
-.parte { display: grid; gap: 10px; padding-top: 28px; border-top: 1px solid var(--bordo); }
-.parte .etichetta { margin-bottom: 0; }
-.parte h2 { font-size: 26px; }
-h3.sub2 { margin: 0; font-size: 18px; font-weight: 700; }
-.lingue { justify-self: end; display: inline-flex; gap: 2px; padding: 3px; border: 1px solid var(--bordo); border-radius: 999px; background: var(--superficie); font-size: 13px; font-weight: 650; margin-bottom: -28px; }
-.lingue a { color: var(--tenue); text-decoration: none; padding: 4px 10px; border-radius: 999px; }
-.lingue a[aria-current="page"] { background: var(--accento-tenue); color: var(--accento); }
-.lingue a:hover { color: var(--testo); }
-@media (max-width: 860px) { .pilastri { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 520px) { .pilastri { grid-template-columns: 1fr; } .scheda { padding: 18px; } }
+@media (max-width: 700px) { .griglia { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .testata { grid-template-columns: 1fr; gap: 12px; } .anello { width: 64px; height: 64px; } }
+@media (prefers-reduced-motion: reduce) { .anteprima img { transition: none; } }
 </style>
 </head>
 <body>
@@ -195,141 +96,86 @@ h3.sub2 { margin: 0; font-size: 18px; font-weight: 700; }
   <nav class="lingue" aria-label="Lingua"><a href="../" hreflang="en" lang="en">EN</a><a href="./" aria-current="page" hreflang="it">IT</a></nav>
 
   <header class="testata">
-    <img class="anello" src="../assets/companybrain.png" alt="" width="132" height="132">
+    <img class="anello" src="../assets/companybrain.png" alt="" width="84" height="84">
     <div>
-      <div class="etichetta">Paper · prova di concetto</div>
       <h1>Company Brain</h1>
-      <p class="tesi">Non migliaia di agenti: un solo cervello governato per impresa, eseguito da un piccolo team di agenti.</p>
-      <div class="azioni">
-        <a class="pulsante primario" href="paper/"><span>Leggi il paper – <em>All you need is a Company Brain</em></span></a>
-        <a class="pulsante secondario" href="https://doi.org/10.5281/zenodo.23589908">PDF su Zenodo</a>
-        <a class="pulsante secondario" href="#animazioni">Guarda le animazioni</a>
-        <a class="pulsante secondario" href="#poc">Prova il POC</a>
-      </div>
+      <p>I pitch, le demo per industry, il paper e la prova di concetto, in un solo posto.</p>
     </div>
   </header>
 
-  <figure class="hero"><img class="chiaro" src="paper/img/opening-light-1x.webp" srcset="paper/img/opening-light-1x.webp 1203w, paper/img/opening-light.webp 2406w" sizes="(min-width: 920px) 880px, 100vw" width="2406" height="1602" alt="Il capability graph sull’esempio della RFP Contoso: manifesto di processo, tre fasi con classe di rischio e agenti, profili di harness, skill e tool MCP, con archi tipizzati."><img class="scuro" src="paper/img/opening-dark-1x.webp" srcset="paper/img/opening-dark-1x.webp 1203w, paper/img/opening-dark.webp 2406w" sizes="(min-width: 920px) 880px, 100vw" width="2406" height="1602" alt=""><figcaption>Il capability graph del paper sul suo esempio guida: processo, fasi, profili, skill e tool, con archi tipizzati.</figcaption></figure>
-
-  <section aria-labelledby="t-idea">
-    <h2 id="t-idea">L’idea</h2>
-    <div class="sintesi">
-      <p>Si parla di imprese popolate da migliaia di agenti AI. Il Company Brain parte da un’idea diversa: ciò che va progettato non è l’agente ma il cervello dell’impresa, un unico grafo governato di ciò che l’azienda sa, di come lavora e di ciò che può fare, con permessi, provenienza e audit su ogni nodo.</p>
-      <p>A eseguirlo è un piccolo team di agenti con ruoli distinti, che agiscono per conto dell’utente e con i privilegi della sola fase in corso. Di notte un processo governato rilegge le tracce del giorno e propone miglioramenti, che entrano solo dopo test e firma umana.</p>
-      <p>Il modello linguistico è il motore e si può cambiare; il cervello è l’asset che resta dell’impresa. Ciò che deve crescere a migliaia sono le sue capacità, non gli agenti, le identità o i permessi da governare.</p>
-    </div>
-  </section>
-
-  <section aria-labelledby="t-pillars">
-    <h2 id="t-pillars">Cinque pilastri</h2>
-    <ol class="pilastri">
-      <li><h3>Capability graph</h3><p>Skill, tool, profili e policy come nodi versionati e firmati, con relazioni tipizzate; le basi di conoscenza stanno dietro tool MCP di sola lettura.</p></li>
-      <li><h3>Tool dinamici</h3><p>Per ogni task il retrieval estrae solo il bundle che serve, entro un budget di token e di tool esposti.</p></li>
-      <li><h3>Policy plane per fase</h3><p>A ogni fase, dichiarata da una state machine esterna, regole deterministiche materializzano profilo e privilegi di ogni sessione.</p></li>
-      <li><h3>Piccolo team</h3><p>Quattro archetipi — Orchestratore, Reader, Esecutore, Verificatore — che agiscono per conto dell’utente, senza credenziali persistenti per istanza.</p></li>
-      <li><h3>Evoluzione governata</h3><p>Di notte il Dreaming propone e mette alla prova modifiche nate dalle tracce del giorno; ciò che concede autorità cambia solo con firma umana.</p></li>
-    </ol>
-  </section>
-
-  <section aria-labelledby="t-paper" id="paper">
-    <h2 id="t-paper">Il paper</h2>
-    <div class="scheda">
-      <p class="tit">All you need is a Company Brain</p>
-      <p class="sub">Il Company Brain come architettura: un grafo governato di conoscenza, procedure e azioni; un piccolo team di agenti che lo esegue con identità delegate e controllo per fase; un ciclo notturno che lo fa crescere.</p>
-      <p class="meta"><span>Giancarlo Sudano</span><span>ottobre 2026</span><span>45 pagine · 13 figure</span><span>CC BY 4.0</span><span><a href="https://doi.org/10.5281/zenodo.23589908"><code>doi:10.5281/zenodo.23589908</code></a></span></p>
-      <p class="intro">L’architettura di riferimento è illustrata su un caso di valutazione del rischio ferroviario (Reg. UE 402/2013); sono in preparazione un protocollo sperimentale per metterne alla prova le ipotesi e un’implementazione di riferimento. La versione di riferimento del paper è quella inglese su Zenodo.</p>
-      <div class="azioni"><a class="pulsante primario" href="paper/">Leggi online in italiano</a><a class="pulsante secondario" href="../paper/" hreflang="en">Read in English</a><a class="pulsante secondario" href="https://doi.org/10.5281/zenodo.23589908">PDF su Zenodo (inglese)</a></div>
-      <p class="cita"><strong>Come citarlo</strong> <span id="cita">Sudano, G. (2026). All you need is a Company Brain. Zenodo. https://doi.org/10.5281/zenodo.23589908</span> <button class="copia" type="button" data-testo="cita">Copia</button></p>
-    </div>
-  </section>
-
-  <div class="parte" id="animazioni">
-    <div class="etichetta">Animazioni · demo</div>
-    <h2>Il Company Brain in movimento</h2>
-    <p class="intro">Animazioni a passi, dal pitch breve al talk completo, e una demo per ogni industry. Girano nel browser: frecce o un clic per andare avanti, B per cambiare lingua. Nelle demo di industry nomi e numeri sono di fantasia.</p>
-  </div>
-
   <section aria-labelledby="t-pitch">
-    <h3 class="sub2" id="t-pitch">Pitch</h3>
-    <ul class="link">
-      <li><div class="voce"><a href="https://orange-dune-063225903.6.azurestaticapps.net/anonimo/01%20Company%20Brain%20Intelligent%20Layer.html#lang=it" target="_blank" rel="noopener">Company Brain · Intelligent Layer</a><p>Livello 100 · il Company Brain come forma concreta dell’intelligent layer, in pochi minuti.</p><span class="indirizzo">orange-dune-063225903.6.azurestaticapps.net/anonimo/</span></div><button class="copia" type="button">Copia</button></li>
-      <li><div class="voce"><a href="https://lemon-water-0985d4a03.3.azurestaticapps.net/#lang=it" target="_blank" rel="noopener">Company Brain · la keynote</a><p>Livello 200-300 · il talk completo, dalla sfida al brain al lavoro, con il percorso fra le animazioni.</p><span class="indirizzo">lemon-water-0985d4a03.3.azurestaticapps.net/</span></div><button class="copia" type="button">Copia</button></li>
-    </ul>
+    <h2 id="t-pitch">Pitch</h2>
+    <div class="griglia">
+      <article class="card">
+        <a class="anteprima" href="https://orange-dune-063225903.6.azurestaticapps.net/anonimo/01%20Company%20Brain%20Intelligent%20Layer.html#lang=it" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="../assets/cards/pitch-100.webp" alt="" width="960" height="540" loading="lazy"></a>
+        <div class="corpo">
+          <span class="livello">Livello 100</span>
+          <h3>Intelligent Layer</h3>
+          <p>Il Company Brain come forma concreta dell’intelligent layer, in pochi minuti.</p>
+          <div class="azioni"><a class="pulsante primario" href="https://orange-dune-063225903.6.azurestaticapps.net/anonimo/01%20Company%20Brain%20Intelligent%20Layer.html#lang=it" target="_blank" rel="noopener">Apri</a><button class="copia" type="button">Copia link</button></div>
+        </div>
+      </article>
+      <article class="card">
+        <a class="anteprima" href="https://lemon-water-0985d4a03.3.azurestaticapps.net/#lang=it" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="../assets/cards/keynote.webp" alt="" width="960" height="540" loading="lazy"></a>
+        <div class="corpo">
+          <span class="livello">Livello 200-300</span>
+          <h3>La keynote</h3>
+          <p>Il talk completo, dalla sfida al brain al lavoro, con il percorso fra le animazioni.</p>
+          <div class="azioni"><a class="pulsante primario" href="https://lemon-water-0985d4a03.3.azurestaticapps.net/#lang=it" target="_blank" rel="noopener">Apri</a><button class="copia" type="button">Copia link</button></div>
+        </div>
+      </article>
+    </div>
   </section>
 
   <section aria-labelledby="t-industry">
-    <h3 class="sub2" id="t-industry">Demo per industry</h3>
-    <ul class="link">
-      <li><div class="voce"><a href="https://ambitious-beach-01dcb0e03.1.azurestaticapps.net/#it" target="_blank" rel="noopener">Retail e beni di consumo</a><p>L’analisi di uno scostamento di vendite fra un brand e un’insegna, rivista nell’arco di una settimana: fasi, approvazioni umane, agenti, documenti e le notti di Dreaming.</p><span class="indirizzo">ambitious-beach-01dcb0e03.1.azurestaticapps.net/</span></div><button class="copia" type="button">Copia</button></li>
-    </ul>
-  </section>
-
-  <div class="parte" id="poc">
-    <div class="etichetta">Prova di concetto</div>
-    <h2>L’architettura al lavoro</h2>
-    <p class="intro">Il POC mette al lavoro il cuore del paper su un caso di produzione di documenti aziendali: il piccolo team, il Policy Plane che lo governa fase per fase e le approvazioni umane. Chiedi un documento; il team lo pianifica, lo scrive e lo verifica.</p>
-    <div class="azioni"><a class="pulsante primario" href="https://ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/ui" target="_blank" rel="noopener">Apri Company Brain</a></div>
-  </div>
-
-  <section aria-labelledby="t-team">
-    <h3 class="sub2" id="t-team">Il team</h3>
-    <p class="intro">Ogni agente ha un compito e permessi propri. Sopra di loro il Policy Plane: regole fuori dal modello che decidono quando si passa alla fase successiva.</p>
-    <div class="team">
-      <article class="ruolo"><img class="ritratto" src="../assets/eroe-orchestratore.jpg" alt="Capitan America, il volto dell'Orchestratore" width="200" height="250" loading="lazy"><h3>Orchestratore</h3><span class="eroe">Capitan America</span><p>Legge la richiesta e propone il piano: incarichi, fasi e criteri di riuscita.</p><p class="motto">guida il team, non tocca la produzione</p></article>
-      <article class="ruolo"><img class="ritratto" src="../assets/eroe-reader.jpg" alt="Scarlet Witch, il volto del Reader" width="200" height="250" loading="lazy"><h3>Reader</h3><span class="eroe">Scarlet Witch</span><p>Cerca nelle fonti autorizzate e riporta le citazioni.</p><p class="motto">legge la mente; qui, solo le fonti</p></article>
-      <article class="ruolo"><img class="ritratto" src="../assets/eroe-esecutore.jpg" alt="Iron Man, il volto dell'Esecutore" width="200" height="250" loading="lazy"><h3>Esecutore</h3><span class="eroe">Iron Man</span><p>Scrive il documento partendo da quello che il Reader ha trovato.</p><p class="motto">mette l’armatura, ma solo con un token</p></article>
-      <article class="ruolo"><img class="ritratto" src="../assets/eroe-verificatore.jpg" alt="Doctor Strange, il volto del Verificatore" width="200" height="250" loading="lazy"><h3>Verificatore</h3><span class="eroe">Doctor Strange</span><p>Controlla il risultato con un modello diverso, in modo indipendente da chi l'ha scritto.</p><p class="motto">visti 14.000.605 futuri; verifica anche il tuo</p></article>
-      <article class="ruolo"><img class="ritratto" src="../assets/eroe-policy.jpg" alt="Nick Fury, il volto del Policy Plane" width="200" height="250" loading="lazy"><h3>Policy Plane</h3><span class="eroe">Nick Fury</span><p>Niente superpoteri né modello: solo regole. Stesso input, stessa risposta, sempre. Decide fase per fase chi può fare cosa, tiene il budget e chiede la tua approvazione.</p><p class="motto">un occhio, zero allucinazioni</p></article>
+    <h2 id="t-industry">Demo per industry</h2>
+    <div class="griglia">
+      <article class="card">
+        <a class="anteprima" href="https://ambitious-beach-01dcb0e03.1.azurestaticapps.net/#it" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="../assets/cards/retail.webp" alt="" width="960" height="540" loading="lazy"></a>
+        <div class="corpo">
+          <span class="livello">Retail · beni di consumo</span>
+          <h3>Analisi di uno scostamento di vendite</h3>
+          <p>Una settimana di un processo governato, rivista: fasi, approvazioni umane, agenti, documenti e le notti. Nomi e numeri sono di fantasia.</p>
+          <div class="azioni"><a class="pulsante primario" href="https://ambitious-beach-01dcb0e03.1.azurestaticapps.net/#it" target="_blank" rel="noopener">Apri</a><button class="copia" type="button">Copia link</button></div>
+        </div>
+      </article>
     </div>
-    <p class="regia">Orchestratore, Reader ed Esecutore lavorano su Claude; il Verificatore su un modello OpenAI. Il Policy Plane non usa modelli: è codice deterministico.</p>
   </section>
 
-  <section id="prova" aria-labelledby="t-prova">
-    <h3 class="sub2" id="t-prova">Come provarlo</h3>
-    <ol class="passi">
-      <li><div><strong>Accedi</strong><span>Apri Company Brain ed entra con l'account Microsoft abilitato al POC.</span></div></li>
-      <li><div><strong>Scrivi cosa ti serve</strong><span>Una frase basta, per esempio «Istruzioni per la prima settimana di un nuovo sviluppatore».</span></div></li>
-      <li><div><strong>Approva il piano</strong><span>Il team propone incarichi e fasi. Puoi approvarlo, chiedere modifiche o rifiutarlo: senza approvazione non parte nulla.</span></div></li>
-      <li><div><strong>Segui il lavoro</strong><span>Il monitor mostra fase per fase cosa fa ogni agente. Alla fine ricevi il documento già verificato.</span></div></li>
-    </ol>
-  </section>
-
-  <section aria-labelledby="t-link">
-    <h3 class="sub2" id="t-link">Link</h3>
-    <ul class="link">
-      <li><div class="voce"><a href="https://ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/ui" target="_blank" rel="noopener">Company Brain</a><p>La conversazione con il team: piano, approvazione, monitor e documento finale.</p><span class="indirizzo">ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/ui</span></div><button class="copia" type="button">Copia</button></li>
-      <li><div class="voce"><a href="https://ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/auth/login" target="_blank" rel="noopener">Accesso</a><p>Porta direttamente alla pagina di login Microsoft.</p><span class="indirizzo">ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/auth/login</span></div><button class="copia" type="button">Copia</button></li>
-    </ul>
-  </section>
-
-  <section aria-labelledby="t-stato">
-    <h3 class="sub2" id="t-stato">Stato</h3>
-    <dl class="stato">
-      <div><dt>Ultimo aggiornamento</dt><dd>16 ottobre 2026</dd></div>
-      <div><dt>Versione dell'applicazione</dt><dd>035191a</dd></div>
-      <div><dt>Versione dell'infrastruttura</dt><dd>ca13b12</dd></div>
-      <div><dt>Ambiente</dt><dd>POC su Azure, Italia Nord</dd></div>
-      <div><dt>Modelli</dt><dd>Claude e OpenAI</dd></div>
-      <div><dt>Sandbox per i file</dt><dd>Accesa su richiesta</dd></div>
-    </dl>
-    <div class="avvisi">
-      <div><strong>Avvio lento alla prima apertura.</strong> Per contenere i costi i servizi si spengono quando nessuno li usa: dopo una pausa la prima risposta può richiedere fino a un minuto.</div>
-      <div><strong>File Office solo con la sandbox accesa.</strong> Documenti Word, Excel e PowerPoint, analisi dati e lettura dei file caricati richiedono la sandbox, che viene accesa per le sessioni di prova (circa 10 minuti di preavviso). Chat, piano e documento in testo funzionano sempre.</div>
-      <div><strong>Accesso limitato.</strong> Per ora il POC è abilitato per un solo account.</div>
+  <section aria-labelledby="t-more">
+    <h2 id="t-more">Paper e prova di concetto</h2>
+    <div class="griglia">
+      <article class="card">
+        <a class="anteprima carta" href="paper/" tabindex="-1" aria-hidden="true"><img class="chiaro" src="../paper/img/opening-light-1x.webp" alt="" width="1203" height="801" loading="lazy"><img class="scuro" src="../paper/img/opening-dark-1x.webp" alt="" width="1203" height="801" loading="lazy"></a>
+        <div class="corpo">
+          <span class="livello">Paper · CC BY 4.0</span>
+          <h3>All you need is a Company Brain</h3>
+          <p>L’architettura per intero: edizione web in italiano e in inglese, PDF su Zenodo.</p>
+          <div class="azioni"><a class="pulsante primario" href="paper/">Leggi online</a><a class="pulsante" href="../paper/" hreflang="en" lang="en">In English</a><a class="pulsante" href="https://doi.org/10.5281/zenodo.23589908">PDF (inglese)</a></div>
+        </div>
+      </article>
+      <article class="card">
+        <a class="anteprima" href="https://ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/ui" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span class="team"><img src="../assets/eroe-orchestratore.jpg" alt="" loading="lazy"><img src="../assets/eroe-reader.jpg" alt="" loading="lazy"><img src="../assets/eroe-esecutore.jpg" alt="" loading="lazy"><img src="../assets/eroe-verificatore.jpg" alt="" loading="lazy"><img src="../assets/eroe-policy.jpg" alt="" loading="lazy"></span></a>
+        <div class="corpo">
+          <span class="livello">Prova di concetto · accesso limitato</span>
+          <h3>Company Brain POC</h3>
+          <p>Il piccolo team al lavoro su un documento di business: piano, approvazione, monitor e documento finale. Accesso con account Microsoft.</p>
+          <div class="azioni"><a class="pulsante primario" href="https://ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/ui" target="_blank" rel="noopener">Apri</a><button class="copia" type="button">Copia link</button></div>
+        </div>
+      </article>
     </div>
   </section>
 
   <footer>
     <span>Company Brain · Giancarlo Sudano</span>
-    <span><a href="https://doi.org/10.5281/zenodo.23589908" style="color:inherit">Paper: doi:10.5281/zenodo.23589908</a></span>
+    <span><a href="https://doi.org/10.5281/zenodo.23589908">doi:10.5281/zenodo.23589908</a></span>
   </footer>
 </div>
 
 <script>
 document.querySelectorAll("button.copia").forEach((b) => {
   b.addEventListener("click", () => {
-    const id = b.getAttribute("data-testo");
-    const text = id ? document.getElementById(id).textContent : b.parentElement.querySelector("a").href;
+    const text = b.parentElement.querySelector("a").href;
     const label = b.textContent;
     const done = () => { b.textContent = "Copiato"; setTimeout(() => (b.textContent = label), 1500); };
     if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, () => {});
