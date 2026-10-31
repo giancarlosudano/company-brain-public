@@ -24,7 +24,7 @@
    Strong color only in the logo and the primary buttons; the rest is neutral. Same layout in ../index.html. */
 :root {
   --fondo: #fbfafd; --superficie: #ffffff; --testo: #1f1d24; --tenue: #5d5868; --bordo: #e4e1ea;
-  --accento: #643fb2; --accento-tenue: #f3eefc;
+  --accento: #643fb2; --accento-tenue: #f3eefc; --pronto: #1f7a45; --pronto-tenue: #e6f4ec; --interno: #8a5a00; --interno-tenue: #fbf0d9;
   --ombra: 0 1px 2px rgba(40, 20, 80, .06), 0 8px 24px rgba(40, 20, 80, .06);
   --font: Aptos, "Segoe UI Variable", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", sans-serif;
   color-scheme: light;
@@ -32,7 +32,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --fondo: #121016; --superficie: #1b1820; --testo: #eeebf3; --tenue: #a7a1b2; --bordo: #2f2b37;
-    --accento: #b99cf2; --accento-tenue: #261f33;
+    --accento: #b99cf2; --accento-tenue: #261f33; --pronto: #7fd3a2; --pronto-tenue: #18301f; --interno: #f0c46a; --interno-tenue: #33280f;
     --ombra: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .25);
     color-scheme: dark;
   }
@@ -68,6 +68,10 @@ h2 { margin: 0; font-size: 13px; font-weight: 700; letter-spacing: .08em; text-t
 .anteprima.carta { background: #fff; }
 .corpo { padding: 16px 18px 18px; display: grid; gap: 6px; align-content: start; }
 .livello { justify-self: start; font-size: 12px; font-weight: 650; letter-spacing: .04em; color: var(--accento); background: var(--accento-tenue); border-radius: 999px; padding: 2px 10px; }
+.etichette { display: flex; flex-wrap: wrap; gap: 6px; }
+.stato { font-size: 12px; font-weight: 650; letter-spacing: .04em; border-radius: 999px; padding: 2px 10px; }
+.stato.pronto { color: var(--pronto); background: var(--pronto-tenue); }
+.stato.interno { color: var(--interno); background: var(--interno-tenue); }
 .card h3 { margin: 2px 0 0; font-size: 19px; letter-spacing: -.01em; }
 .card p { margin: 0; color: var(--tenue); font-size: 15px; text-wrap: pretty; }
 .azioni { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; align-items: center; }
@@ -109,7 +113,7 @@ footer a { color: inherit; }
       <article class="card">
         <a class="anteprima" href="https://aka.ms/companybrain-pitch-50#lang=it" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="../assets/cards/pitch-50.webp" alt="" width="960" height="540" loading="lazy"></a>
         <div class="corpo">
-          <span class="livello">Livello 50</span>
+          <div class="etichette"><span class="livello">Livello 50</span><span class="stato interno">Interna</span></div>
           <h3>Intelligent Layer</h3>
           <p>Il Company Brain come forma concreta dell’intelligent layer, in pochi minuti.</p>
           <div class="azioni"><a class="pulsante primario" href="https://aka.ms/companybrain-pitch-50#lang=it" target="_blank" rel="noopener">Apri</a><button class="copia" type="button">Copia link</button></div>
@@ -118,7 +122,7 @@ footer a { color: inherit; }
       <article class="card">
         <a class="anteprima" href="https://aka.ms/companybrain-pitch-100#lang=it" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="../assets/cards/pitch-100-executive.webp" alt="" width="960" height="540" loading="lazy"></a>
         <div class="corpo">
-          <span class="livello">Livello 100</span>
+          <div class="etichette"><span class="livello">Livello 100</span><span class="stato interno">Interna</span></div>
           <h3>Executive brief</h3>
           <p>Perché un Company Brain, che cos'è, come lavora di giorno e di notte, e perché su Microsoft: il racconto per i manager.</p>
           <div class="azioni"><a class="pulsante primario" href="https://aka.ms/companybrain-pitch-100#lang=it" target="_blank" rel="noopener">Apri</a><button class="copia" type="button">Copia link</button></div>
@@ -133,7 +137,7 @@ footer a { color: inherit; }
       <article class="card">
         <a class="anteprima" href="https://aka.ms/companybrain-cci-keynote#lang=it" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="../assets/cards/keynote.webp" alt="" width="960" height="540" loading="lazy"></a>
         <div class="corpo">
-          <span class="livello">Cloud Conference Italia · 29 ott 2026 · livello 200-300</span>
+          <div class="etichette"><span class="livello">Cloud Conference Italia · 29 ott 2026 · livello 200-300</span><span class="stato pronto">Pronta per i clienti</span></div>
           <h3>CCI Keynote 2026</h3>
           <p>La keynote alla Cloud Conference Italia 2026, Treviso: il talk completo, dalla sfida al brain al lavoro, con il percorso fra le animazioni.</p>
           <div class="azioni"><a class="pulsante primario" href="https://aka.ms/companybrain-cci-keynote#lang=it" target="_blank" rel="noopener">Apri</a><button class="copia" type="button">Copia link</button></div>
@@ -148,7 +152,7 @@ footer a { color: inherit; }
       <article class="card">
         <a class="anteprima" href="https://aka.ms/companybrain-demo-retail#it" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="../assets/cards/retail.webp" alt="" width="960" height="540" loading="lazy"></a>
         <div class="corpo">
-          <span class="livello">Retail · beni di consumo</span>
+          <div class="etichette"><span class="livello">Retail · beni di consumo</span><span class="stato pronto">Pronta per i clienti</span></div>
           <h3>Analisi di uno scostamento di vendite</h3>
           <p>Una settimana di un processo governato, rivista: fasi, approvazioni umane, agenti, documenti e le notti. Nomi e numeri sono di fantasia.</p>
           <div class="azioni"><a class="pulsante primario" href="https://aka.ms/companybrain-demo-retail#it" target="_blank" rel="noopener">Apri</a><button class="copia" type="button">Copia link</button></div>
@@ -157,7 +161,7 @@ footer a { color: inherit; }
       <article class="card">
         <a class="anteprima" href="https://aka.ms/companybrain-demo-insurance#it" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="../assets/cards/insurance.webp" alt="" width="960" height="540" loading="lazy"></a>
         <div class="corpo">
-          <span class="livello">Assicurazioni · sinistri</span>
+          <div class="etichette"><span class="livello">Assicurazioni · sinistri</span><span class="stato pronto">Pronta per i clienti</span></div>
           <h3>Revisione di un sinistro rilevante</h3>
           <p>Una settimana di un processo governato su un fascicolo pieno di documenti: copertura, quantum, la lettera di posizione, approvazioni umane, agenti e le notti. Nomi e numeri sono di fantasia.</p>
           <div class="azioni"><a class="pulsante primario" href="https://aka.ms/companybrain-demo-insurance#it" target="_blank" rel="noopener">Apri</a><button class="copia" type="button">Copia link</button></div>
@@ -172,7 +176,7 @@ footer a { color: inherit; }
       <article class="card">
         <a class="anteprima carta" href="paper/" tabindex="-1" aria-hidden="true"><img class="chiaro" src="../paper/img/opening-light-1x.webp" alt="" width="1203" height="801" loading="lazy"><img class="scuro" src="../paper/img/opening-dark-1x.webp" alt="" width="1203" height="801" loading="lazy"></a>
         <div class="corpo">
-          <span class="livello">Paper · CC BY 4.0</span>
+          <div class="etichette"><span class="livello">Paper · CC BY 4.0</span><span class="stato pronto">Pronta per i clienti</span></div>
           <h3>All you need is a Company Brain</h3>
           <p>L’architettura per intero: edizione web in italiano e in inglese, PDF su Zenodo.</p>
           <div class="azioni"><a class="pulsante primario" href="paper/">Leggi online</a><a class="pulsante" href="../paper/" hreflang="en" lang="en">In English</a><a class="pulsante" href="https://doi.org/10.5281/zenodo.23589908">PDF (inglese)</a></div>
@@ -181,7 +185,7 @@ footer a { color: inherit; }
       <article class="card">
         <a class="anteprima" href="https://ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/ui" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span class="team"><img src="../assets/eroe-orchestratore.jpg" alt="" loading="lazy"><img src="../assets/eroe-reader.jpg" alt="" loading="lazy"><img src="../assets/eroe-esecutore.jpg" alt="" loading="lazy"><img src="../assets/eroe-verificatore.jpg" alt="" loading="lazy"><img src="../assets/eroe-policy.jpg" alt="" loading="lazy"></span></a>
         <div class="corpo">
-          <span class="livello">Proof of concept · accesso limitato</span>
+          <div class="etichette"><span class="livello">Proof of concept · accesso limitato</span><span class="stato pronto">Pronta per i clienti</span></div>
           <h3>Company Brain POC</h3>
           <p>Il piccolo team al lavoro su un documento di business: piano, approvazione, monitor e documento finale. Accesso con account Microsoft.</p>
           <div class="azioni"><a class="pulsante primario" href="https://ca-cb-api.calmrock-5a1d2e24.italynorth.azurecontainerapps.io/ui" target="_blank" rel="noopener">Apri</a><button class="copia" type="button">Copia link</button></div>
